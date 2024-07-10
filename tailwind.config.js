@@ -4,7 +4,10 @@ export default {
    theme: {
       extend: {
          backgroundImage: {
-            "errorImg": "url('./src/assets/error/Backgrounds_Smile108397_2.jpg')",
+            errorImg: "url('./src/assets/error/Backgrounds_Smile108397_2.jpg')",
+         },
+         fontFamily: {
+            style: ["Fira Sans", "sans-serif"],
          },
       },
    },

@@ -1,37 +1,63 @@
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/logo1.png"
-import { useEffect, useState } from "react";
-
-
+import logo from "../../assets/logo1.png";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Router/AuthProvider";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
+   const [theme, setTheme] = useState("light");
+   const { user, logOut } = useContext(AuthContext);
 
-   const [theme, setTheme] = useState('light');
-  
-   const handleTheme = (e) =>{
-      const check = e.target.checked
-      if(check){
-         setTheme('dark')
+   const handleTheme = (e) => {
+      const check = e.target.checked;
+      if (check) {
+         setTheme("dark");
+      } else {
+         setTheme("light");
       }
-      else{
-         setTheme('light')
-      }
-   }
+   };
 
-   useEffect(()=>{
-      localStorage.setItem('theme', theme);
-      const localTheme = localStorage.getItem('theme')
-      document.querySelector('html').setAttribute('data-theme', localTheme)
-   },[theme])
+   useEffect(() => {
+      localStorage.setItem("theme", theme);
+      const localTheme = localStorage.getItem("theme");
+      document.querySelector("html").setAttribute("data-theme", localTheme);
+   }, [theme]);
 
+   const handleLogOutBtn = () => {
+      Swal.fire({
+         title: "Are you sure?",
+         text: "You won't be able to revert this!",
+         icon: "warning",
+         showCancelButton: true,
+         confirmButtonColor: "#3085d6",
+         cancelButtonColor: "#d33",
+         confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+         if (result.isConfirmed) {
+            Swal.fire({
+               title: "Deleted!",
+               text: "Your file has been deleted.",
+               icon: "success",
+            });
+            logOut()
+               .then((result) => {})
+               .then((error) => {
+                  console.log(error);
+               });
+         }
+      });
+   };
 
-   
-   
-
-   const NavLinks = <div className="flex gap-10">
-       <NavLink to={'/'} className={({isActive}) => (isActive ? "font-bold text-xl text-blue-600" : "font-bold text-xl")}>Home</NavLink>
-       <NavLink to={'/about'} className={({isActive}) => (isActive ? "font-bold text-xl text-blue-600" : "font-bold text-xl")}>about</NavLink>
-   </div>
+   const NavLinks = (
+      <div className="flex gap-10">
+         <NavLink to={"/"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>
+            Home
+         </NavLink>
+         <NavLink to={"/about"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>
+            about
+         </NavLink>
+      </div>
+   );
    return (
       <div>
          <div className="navbar bg-base-100">
@@ -51,8 +77,23 @@ const NavBar = () => {
             <div className="navbar-center hidden lg:flex">
                <ul className="menu menu-horizontal px-1">{NavLinks}</ul>
             </div>
-            <div className="navbar-end">
-               <a className="btn">Button</a>
+            <div className="navbar-end flex gap-4">
+               {user ? (
+                  <NavLink
+                     to={"/login"}
+                     onClick={handleLogOutBtn}
+                     className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}
+                  >
+                     LogOut
+                  </NavLink>
+               ) : (
+                  <NavLink to={"/login"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>
+                     LogIn
+                  </NavLink>
+               )}
+               <NavLink to={"/register"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>
+                  Register
+               </NavLink>
 
                {/* theme controller */}
                <label className="grid cursor-pointer place-items-center">
