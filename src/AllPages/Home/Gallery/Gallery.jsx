@@ -19,7 +19,21 @@ const Gallery = () => {
                <div className="hover:rounded-md  hover:bg-gradient-to-r hover:from-[#01091380] to-[#20215130]">
                   <img className="hover:bg-gradient-to-r hover:from-[#01091380] to-[#20215130]" src={gallery2} alt="" />
                </div>
-               <img src={gallery1} alt="" />
+               {/* <div className="w-full h-full flex items-center justify-center bg-orange-500"> */}
+               <div className="wrapper flex w-full justify-around">
+                  <div className="card w-full h-[560px]  p-6 bg-white relative flex items-end transition ease-out duration-500 shadow-[0px_7px_10px_rgba(0,0,0,0.5)] hover:translate-y-[-20px]">
+                     <div className="absolute top-0 left-0 w-full h-full  bg-[rgba(0,0,0,0.6)] transition-opacity duration-500 opacity-0 hover:opacity-100">eee</div>
+
+                     <img className="absolute top-0 left-0 w-full h-full object-cover " src={gallery1} alt="" />
+                     <div className="relative z-10 text-white opacity-0 transform translate-y-[30px] transition-opacity  duration-500 hover:opacity-100 hover:translate-y-0">
+                        <p className="tracking-wide text-sm mt-2">Amenities</p>
+                        <h1 className="m-0">Kitchen</h1>
+                        <button className="p-2 mt-2 bg-white text-black font-bold rounded hover:bg-blue-500 hover:text-white transition ease duration-500">Button</button>
+                     </div>
+                  </div>
+               </div>
+               {/* </div> */}
+               {/* <img src={gallery1} alt="" /> */}
             </div>
             <div className="space-y-8">
                <img src={gallery4} alt="" />
@@ -31,10 +45,10 @@ const Gallery = () => {
             </div>
             {/* hover code */}
 
-            <div className="w-full h-full flex items-center justify-center bg-orange-500">
+            {/* <div className="w-full h-full flex items-center justify-center bg-orange-500">
                <div className="wrapper flex w-[90%] justify-around">
                   <div className="card w-[280px] h-[360px] rounded-[15px] p-6 bg-white relative flex items-end transition ease-out duration-500 shadow-[0px_7px_10px_rgba(0,0,0,0.5)] hover:translate-y-[-20px]">
-                     <div className="absolute top-0 left-0 w-full h-full rounded-[15px] bg-[rgba(0,0,0,0.6)] transition-opacity duration-500 opacity-0 hover:opacity-100">fddd</div>
+                     <div className="absolute top-0 left-0 w-full h-full rounded-[15px] bg-[rgba(0,0,0,0.6)] transition-opacity duration-500 opacity-0 hover:opacity-100"></div>
 
                      <img className="absolute top-0 left-0 w-full h-full object-cover rounded-[15px]" src={gallery1} alt="" />
                      <div className="info relative z-10 text-white opacity-0 transform translate-y-[30px] transition-opacity transform duration-500 hover:opacity-100 hover:translate-y-0">
@@ -44,7 +58,7 @@ const Gallery = () => {
                      </div>
                   </div>
                </div>
-            </div>
+            </div> */}
          </div>
       </div>
    );
