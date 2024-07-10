@@ -9,7 +9,7 @@ const Room = () => {
          <div>
             <h1 className="text-6xl font-bold font-classic text-center">Best Offer on Our Rooms</h1>
          </div>
-         <div className="max-w-7xl px-6 py-16 mx-auto space-y-12">
+         <div className="max-w-6xl px-6 py-16 mx-auto space-y-12">
             <article className="space-y-8">
                <div className="flex  items-center -mx-4 overflow-x-auto overflow-y-hidden justify-between flex-nowrap dark:bg-gray-100 dark:text-gray-800">
                   <Link to={""} onClick={() => setTabIndex(0)} className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 0 ? "border-b-2 border-blue-700 font-style" : "border-b font-style"} rounded-t-lg dark:text-gray-900`}>
