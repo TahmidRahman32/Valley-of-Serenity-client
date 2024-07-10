@@ -15,6 +15,7 @@ export default {
          fontFamily: {
             style: ["Fira Sans", "sans-serif"],
             sc: "Ga Maamli",
+            classic:"Wittgenstein", 
          },
       },
    },

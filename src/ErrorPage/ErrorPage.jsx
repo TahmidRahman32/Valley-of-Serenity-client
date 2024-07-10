@@ -17,7 +17,7 @@ const ErrorPage = () => {
                      <img className="" src={Error} alt="" />
                   </h2>
                   {/* <p className="text-2xl font-semibold md:text-3xl">Sorry, we could not find this page.</p> */}
-                  <p className="mt-4 mb-8 text-pink-700 font-bold">{error.message.slice(0,60)}</p>
+                  <p className="mt-4 mb-8 text-pink-700 font-bold">{error?.message?.slice(0,60)}</p>
                   <Link to={'/'} className="relative inline-block text-lg group">
                      <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-white transition-colors duration-300 ease-out border-2 border-white rounded-lg group-hover:text-black">
                         <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-black"></span>

@@ -6,6 +6,10 @@ import Root from "../LayOut/Root/Root";
 import Login from "../Auth/Login";
 import Register from "../Auth/Register";
 
+import SuiteRoom from "../AllPages/Home/Room/SuiteRoom";
+import DeluxeRoom from "../AllPages/Home/Room/DeluxeRoom";
+import LivingRoom from "../AllPages/Home/Room/LivingRoom";
+
 
 const router = createBrowserRouter([
    {
@@ -14,26 +18,41 @@ const router = createBrowserRouter([
       errorElement: <ErrorPage />,
       children: [
          {
-            path: '/',
+            path: "/",
             element: <Home />,
+            children: [
+               {
+                  index: true,
+                  element: <SuiteRoom />,
+               },
+               {
+                  path: "deluxe",
+                  element: <DeluxeRoom />,
+               },
+               {
+                  path: "living",
+                  element: <LivingRoom/>,
+               },
+              
+            ],
          },
          {
-            path: '/login',
+            path: "/login",
             element: <Login />,
          },
          {
-            path: '/register',
+            path: "/register",
             element: <Register />,
          },
          // {
-         //    path: '/',
-         //    element: <Home />,
+         //    path: "/room",
+         //    element: <Room />,
          // },
          // {
          //    path: '/',
          //    element: <Home />,
          // },
-      ]
+      ],
    },
 ]);
 
