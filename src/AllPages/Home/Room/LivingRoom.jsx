@@ -77,7 +77,7 @@ const LivingRoom = () => {
                         <img className="h-[830px]" src={livingimg7} alt="" />
                         <div className="absolute top-4  bg-[#0A238930] text-white py-2 px-10 text-center ">
                            <h3 className="text-3xl font-bold font-classic">10+</h3>
-                           <p className="font-classic  text-xl">ROOM</p>
+                           <p className="font-classic  text-xl">LIVING ROOM</p>
                         </div>
                      </SwiperSlide>
                   </Swiper>
