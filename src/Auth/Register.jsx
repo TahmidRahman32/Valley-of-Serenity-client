@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
 import { AuthContext } from "../Router/AuthProvider";
-
+import toast from "react-hot-toast";
 
 const Register = () => {
    const [showPass, setShowPass] = useState(false);
@@ -17,6 +17,17 @@ const Register = () => {
       const email = form.email.value;
       const password = form.password.value;
       console.log(email, password, name);
+
+         if (password.length < 6) {
+            toast.error("Password must be 6 Character");
+            return;
+         } else if (!/[A-Z]/.test(password)) {
+            toast.error("Please Add Minimum one Uppercase");
+            return;
+         } else if (!/[a-z]/.test(password)) {
+            toast.error("Please Add Minimum one lowercase");
+            return;
+         }
       createUser(email, password)
          .then((result) => {
             console.log(result.user);

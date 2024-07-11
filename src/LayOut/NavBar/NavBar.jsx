@@ -56,6 +56,13 @@ const NavBar = () => {
          <NavLink to={"/about"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>
             about
          </NavLink>
+
+         <NavLink to={"/MyBookings"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>
+            MyBookings
+         </NavLink>
+         <NavLink to={"/Rooms"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>
+            Rooms
+         </NavLink>
       </div>
    );
    return (

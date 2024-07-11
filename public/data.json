@@ -1,0 +1,82 @@
+[
+   {
+      "hotel_name": "Valley of Serenity",
+      "room_images": ["https://i.ibb.co/3fvVQR0/pexels-enginakyurt-1579253.jpg", "https://i.ibb.co/8DKNd5y/pexels-jvdm-1454804.jpg", "https://ibb.co/bb1bnSX", "https://ibb.co/9rYZCjD"],
+      "availability": true,
+      "room_size": "30 sqm",
+      "price_per_night": "$150",
+      "room_description": "A cozy room with a king-sized bed, modern amenities, and a beautiful view of the valley.",
+      "title": "King Room with Valley View",
+      "special_offers": "Book 3 nights and get 1 night free."
+   },
+   {
+      "hotel_name": "Valley of Serenity",
+      "room_images": ["https://i.ibb.co/Srg682D/pexels-itsterrymag-2631746.jpg", "https://i.ibb.co/0Y0KHWs/pexels-heyho-6487944.jpg", "https://ibb.co/rHMWNJQ", "https://ibb.co/3cpgNz1"],
+      "availability": false,
+      "room_size": "25 sqm",
+      "price_per_night": "$120",
+      "room_description": "A comfortable room with a queen-sized bed and a private balcony overlooking the garden.",
+      "title": "Queen Room with Garden View",
+      "special_offers": null
+   },
+   {
+      "hotel_name": "Valley of Serenity",
+      "room_images": ["https://i.ibb.co/8DcNqfF/pexels-pixabay-164595.jpg", "https://i.ibb.co/s2f9qtq/pexels-heyho-6207947.jpg", "https://ibb.co/p0xyJXx", "https://ibb.co/qyLTdR7"],
+      "availability": true,
+      "room_size": "20 sqm",
+      "price_per_night": "$100",
+      "room_description": "A standard room with twin beds and modern amenities.",
+      "title": "Twin Room",
+      "special_offers": "10% discount for stays longer than 5 nights."
+   },
+   {
+      "hotel_name": "Valley of Serenity",
+      "room_images": ["https://i.ibb.co/kQzcPnD/pexels-pixabay-237371.jpg", "https://i.ibb.co/FmcXCmm/pexels-heyho-6186825.jpg", "https://ibb.co/G3mwS3n", "https://ibb.co/qy7jLnQ"],
+      "availability": true,
+      "room_size": "35 sqm",
+      "price_per_night": "$180",
+      "room_description": "A spacious suite with a separate living area and stunning valley views.",
+      "title": "Valley Suite",
+      "special_offers": "Complimentary breakfast for two."
+   },
+   {
+      "hotel_name": "Valley of Serenity",
+      "room_images": ["https://i.ibb.co/4SPjxRM/pexels-pixabay-262048.jpg", "https://i.ibb.co/pwfpRcc/pexels-fotoaibe-1571462.jpg", "https://ibb.co/Y30NzVg", "https://ibb.co/jybC7T4"],
+      "availability": false,
+      "room_size": "28 sqm",
+      "price_per_night": "$130",
+      "room_description": "A deluxe room with a king-sized bed and a private terrace.",
+      "title": "Deluxe King Room",
+      "special_offers": null
+   },
+   {
+      "hotel_name": "Valley of Serenity",
+      "room_images": ["https://i.ibb.co/8ckN52v/pexels-pixabay-271619.jpg", "https://i.ibb.co/6B9JwQp/pexels-curtis-adams-1694007-3935336.jpg", "https://ibb.co/LNV5Cmj", "https://ibb.co/3cpgNz1"],
+      "availability": true,
+      "room_size": "32 sqm",
+      "price_per_night": "$160",
+      "room_description": "A luxurious room with a queen-sized bed and panoramic valley views.",
+      "title": "Panoramic Queen Room",
+      "special_offers": "Free upgrade to the next room category."
+   },
+   {
+      "hotel_name": "Valley of Serenity",
+      "room_images": ["https://i.ibb.co/6nhKHkg/pexels-pixabay-271624.jpg", "https://i.ibb.co/4mNjY6b/pexels-curtis-adams-1694007-3288104.jpg", "https://ibb.co/cYsgyN3", "https://ibb.co/9rYZCjD"],
+      "availability": true,
+      "room_size": "40 sqm",
+      "price_per_night": "$200",
+      "room_description": "An elegant suite with a king-sized bed, living area, and breathtaking valley views.",
+      "title": "Executive Suite",
+      "special_offers": "Complimentary airport transfer."
+   },
+   {
+      "hotel_name": "Valley of Serenity",
+      "room_images": ["https://i.ibb.co/6D48HxR/pexels-pixabay-271639.jpg", "https://i.ibb.co/yWhb4tP/pexels-christa-grover-977018-1910472.jpg", "https://ibb.co/Cv7NXCM", "https://ibb.co/zPxvBNm"],
+      "availability": false,
+      "room_size": "22 sqm",
+      "price_per_night": "$110",
+      "room_description": "A cozy single room with a comfortable bed and all essential amenities.",
+      "title": "Single Room",
+      "special_offers": "Early check-in and late check-out available."
+   }
+]

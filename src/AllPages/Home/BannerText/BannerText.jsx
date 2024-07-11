@@ -1,11 +1,11 @@
 import { ReactTyped } from "react-typed";
 import MovingText from "react-moving-text";
-
+import "animate.css";
 const BannerText = () => {
    return (
-      <div className="flex justify-center items-center min-h-[calc(100vh-112px)] rounded-md bg bg-gradient-to-r from-[#01091380] to-[#20215130]">
+      <div className="flex justify-center items-center min-h-[calc(100vh-112px)] rounded-md bg bg-gradient-to-r from-[#01091380] to-[#20215130] animate__animated animate__zoomInDown animate__fast">
          <div className="text-white text-center">
-            <h5 className="text-2xl font-sc">Welcome to Luxeliving</h5>
+            <h5 className="text-2xl font-sc animate__animated animate__zoomInDown animate__fast">Welcome to Luxeliving</h5>
             <h1 className="text-6xl font-style font-bold">
                <ReactTyped strings={["Discover the art of"]} typeSpeed={300} loop />
             </h1>

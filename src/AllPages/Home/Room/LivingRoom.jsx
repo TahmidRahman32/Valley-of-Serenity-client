@@ -77,7 +77,7 @@ const LivingRoom = () => {
                         <img className="h-[830px]" src={livingimg7} alt="" />
                         <div className="absolute top-4  bg-[#0A238930] text-white py-2 px-10 text-center ">
                            <h3 className="text-3xl font-bold font-classic">10+</h3>
-                           <p className="font-classic  text-xl">LIVING ROOM</p>
+                           <p className="font-classic  text-xl"> LIVING ROOM</p>
                         </div>
                      </SwiperSlide>
                   </Swiper>
@@ -104,10 +104,10 @@ const LivingRoom = () => {
                      </div>
                   </div>
                   <div className="flex gap-16 pt-10">
-                     <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-black shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
+                     <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
                         <span className="relative z-10 font-classic flex items-center gap-2">BOOk NOW</span>
                      </button>
-                     <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-black shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
+                     <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
                         <span className="relative z-10 font-classic flex items-center gap-2 uppercase">view details</span>
                      </button>
                   </div>

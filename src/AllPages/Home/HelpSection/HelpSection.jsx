@@ -9,7 +9,7 @@ const HelpSection = () => {
    return (
       <div className="my-10">
          <div className="flex gap-16 justify-center  md:my-20">
-            <div className="space-y-7 mt-8">
+            <div className="space-y-7 mt-8 relative animate__animated animate__slideInLeft animate__slow">
                <h1 className="text-6xl font-bold font-style">
                   We can help you feel <br /> more comfortable
                </h1>
@@ -35,13 +35,13 @@ const HelpSection = () => {
                   </p>
                </div>
 
-               <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-black shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
+               <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
                   <span className="relative z-10 font-style flex items-center gap-2">
                      <IoCallSharp size={20} color="#209F32" /> Help 161616
                   </span>
                </button>
             </div>
-            <div className="relative">
+            <div className="relative animate__animated animate__slideInRight animate__slow">
                <img className="w-[450px]" src={helpImg2} alt="" />
                <img className="w-96 absolute -bottom-12 -left-16 border-8 border-white rounded-xl" src={helpImg1} alt="" />
                <div className="absolute top-16 -right-16 bg-black text-white py-8 px-10 text-center">

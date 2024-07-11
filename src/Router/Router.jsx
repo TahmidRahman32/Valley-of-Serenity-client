@@ -1,5 +1,4 @@
-
-import { createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Home from "../AllPages/Home/Home/Home";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Root from "../LayOut/Root/Root";
@@ -10,6 +9,8 @@ import SuiteRoom from "../AllPages/Home/Room/SuiteRoom";
 import DeluxeRoom from "../AllPages/Home/Room/DeluxeRoom";
 import LivingRoom from "../AllPages/Home/Room/LivingRoom";
 
+import MyBookings from "../AllPages/MyBookings/MyBookings/MyBookings";
+import Rooms from "../AllPages/Rooms/Rooms/Rooms";
 
 const router = createBrowserRouter([
    {
@@ -31,9 +32,8 @@ const router = createBrowserRouter([
                },
                {
                   path: "living",
-                  element: <LivingRoom/>,
+                  element: <LivingRoom />,
                },
-              
             ],
          },
          {
@@ -44,9 +44,19 @@ const router = createBrowserRouter([
             path: "/register",
             element: <Register />,
          },
+        
+         {
+            path: "/MyBookings",
+            element: <MyBookings />,
+         },
+         {
+            path: "/Rooms",
+            element: <Rooms />,
+            loader: () => fetch('data.json'),
+         },
          // {
-         //    path: "/room",
-         //    element: <Room />,
+         //    path: '/',
+         //    element: <Home />,
          // },
          // {
          //    path: '/',

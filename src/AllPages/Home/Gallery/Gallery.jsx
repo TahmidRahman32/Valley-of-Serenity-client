@@ -33,7 +33,7 @@ const Gallery = () => {
                      <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold text-5xl text-white font-sans">
                         <div className="text-center space-y-3">
                            <h5 className="text-lg text-yellow-500">Amenities</h5>
-                           <h2 className="font-classic text-4xl">Kitchen</h2>
+                           <h2 className="font-classic text-4xl">Hotel lake</h2>
                         </div>
                      </span>
                   </div>
@@ -72,7 +72,7 @@ const Gallery = () => {
                      <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold text-5xl text-white font-sans">
                         <div className="text-center space-y-3">
                            <h5 className="text-lg text-yellow-500">Amenities </h5>
-                           <h2 className="font-classic text-4xl">Bathroom</h2>
+                           <h2 className="font-classic text-4xl">BabRoom</h2>
                         </div>
                      </span>
                   </div>
@@ -82,8 +82,8 @@ const Gallery = () => {
                   <div className="absolute bg-black bg-opacity-50 w-full h-full top-0 transform scale-[1.3] opacity-0 transition-transform duration-[400ms] ease overlay">
                      <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold text-5xl text-white font-sans">
                         <div className="text-center space-y-3">
-                           <h5 className="text-lg text-yellow-500">Amenities </h5>
-                           <h2 className="font-classic text-4xl">Bathroom</h2>
+                           <h5 className="text-lg text-yellow-500">Service</h5>
+                           <h2 className="font-classic text-4xl">Entry exit gate</h2>
                         </div>
                      </span>
                   </div>
