@@ -6,20 +6,20 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // img slider
-import roomSlider1 from '../../../assets/rooms/slider1.jpg'
-import roomSlider2 from '../../../assets/rooms/slider2.jpg'
-import roomSlider3 from '../../../assets/rooms/slider3.jpg'
-import roomSlider4 from '../../../assets/rooms/slider4.jpg'
-import roomSlider5 from '../../../assets/rooms/slider5.jpg'
-import roomSlider6 from '../../../assets/rooms/slider6.jpg'
-import roomSlider7 from '../../../assets/rooms/slider7.jpg'
-
+import roomSlider1 from "../../../assets/rooms/slider1.jpg";
+import roomSlider2 from "../../../assets/rooms/slider2.jpg";
+import roomSlider3 from "../../../assets/rooms/slider3.jpg";
+import roomSlider4 from "../../../assets/rooms/slider4.jpg";
+import roomSlider5 from "../../../assets/rooms/slider5.jpg";
+import roomSlider6 from "../../../assets/rooms/slider6.jpg";
+import roomSlider7 from "../../../assets/rooms/slider7.jpg";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { Link } from "react-router-dom";
 
 const SuiteRoom = () => {
    return (
@@ -106,9 +106,13 @@ const SuiteRoom = () => {
                   </div>
                </div>
                <div className="flex gap-16 pt-10">
-                  <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
+                  <Link
+                     to={"/rooms"}
+                     className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg"
+                  >
                      <span className="relative z-10 font-classic flex items-center gap-2">BOOk NOW</span>
-                  </button>
+                  </Link>
+
                   <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
                      <span className="relative z-10 font-classic flex items-center gap-2 uppercase">view details</span>
                   </button>

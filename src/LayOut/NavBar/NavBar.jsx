@@ -26,17 +26,17 @@ const NavBar = () => {
    const handleLogOutBtn = () => {
       Swal.fire({
          title: "Are you sure?",
-         text: "You won't be able to revert this!",
+         text: "Do you want to logout of the website?",
          icon: "warning",
          showCancelButton: true,
          confirmButtonColor: "#3085d6",
          cancelButtonColor: "#d33",
-         confirmButtonText: "Yes, delete it!",
+         confirmButtonText: "Yes, LogOut",
       }).then((result) => {
          if (result.isConfirmed) {
             Swal.fire({
-               title: "Deleted!",
-               text: "Your file has been deleted.",
+               title: "LogOut",
+               text: "Your access has been disable.",
                icon: "success",
             });
             logOut()
@@ -53,11 +53,16 @@ const NavBar = () => {
          <NavLink to={"/"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>
             Home
          </NavLink>
-         <NavLink to={"/about"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>
-            about
-         </NavLink>
+         {user && (
+            <NavLink to={"/about"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>
+               about
+            </NavLink>
+         )}
 
-         <NavLink to={"/MyBookings"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>
+         <NavLink
+            to={user ? "/MyBookings" : "/login"}
+            className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}
+         >
             MyBookings
          </NavLink>
          <NavLink to={"/Rooms"} className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}>

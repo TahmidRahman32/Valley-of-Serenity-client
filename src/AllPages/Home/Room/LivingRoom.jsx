@@ -17,6 +17,7 @@ import livingimg4 from '../../../assets/livingrooms/pexels-fotoaibe-1669799.jpg'
 import livingimg5 from '../../../assets/livingrooms/pexels-itsterrymag-2988860.jpg';
 import livingimg6 from '../../../assets/livingrooms/pexels-jvdm-1457842.jpg';
 import livingimg7 from '../../../assets/livingrooms/pexels-pixabay-276724.jpg';
+import { Link } from "react-router-dom";
 
 const LivingRoom = () => {
    return (
@@ -104,9 +105,12 @@ const LivingRoom = () => {
                      </div>
                   </div>
                   <div className="flex gap-16 pt-10">
-                     <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
+                     <Link
+                        to={"/rooms"}
+                        className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg"
+                     >
                         <span className="relative z-10 font-classic flex items-center gap-2">BOOk NOW</span>
-                     </button>
+                     </Link>
                      <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
                         <span className="relative z-10 font-classic flex items-center gap-2 uppercase">view details</span>
                      </button>

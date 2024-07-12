@@ -17,6 +17,7 @@ import deluxe4 from "../../../assets/washrooms/deluxe4.jpg";
 import deluxe5 from "../../../assets/washrooms/deluxe5.jpg";
 import deluxe6 from "../../../assets/washrooms/deluxe6.jpg";
 import deluxe7 from "../../../assets/washrooms/deluxe7.jpg";
+import { Link } from "react-router-dom";
 
 const DeluxeRoom = () => {
    return (
@@ -104,9 +105,12 @@ const DeluxeRoom = () => {
                      </div>
                   </div>
                   <div className="flex gap-16 pt-10">
-                     <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
+                     <Link
+                        to={"/rooms"}
+                        className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg"
+                     >
                         <span className="relative z-10 font-classic flex items-center gap-2">BOOk NOW</span>
-                     </button>
+                     </Link>
                      <button className="w-2/5  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-black border text-gray-500 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-800 before:duration-500 before:ease-out hover:shadow-blue-600 hover:text-white hover:before:h-56 hover:before:w-56 rounded-lg">
                         <span className="relative z-10 font-classic flex items-center gap-2 uppercase">view details</span>
                      </button>

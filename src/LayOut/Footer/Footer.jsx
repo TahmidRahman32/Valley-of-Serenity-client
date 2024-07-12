@@ -2,7 +2,7 @@ import footerLogo from '../../assets/fevIcon.png'
 
 const Footer = () => {
    return (
-      <footer className="px-4 divide-y  bg-footerImg bg-no-repeat bg-center text-gray-100">
+      <footer className=" divide-y  bg-footerImg bg-no-repeat bg-center text-gray-100">
          <div className="bg-[#000208A1]">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                <div className="lg:w-1/3">

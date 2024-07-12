@@ -11,6 +11,7 @@ import LivingRoom from "../AllPages/Home/Room/LivingRoom";
 
 import MyBookings from "../AllPages/MyBookings/MyBookings/MyBookings";
 import Rooms from "../AllPages/Rooms/Rooms/Rooms";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
    {
@@ -28,11 +29,19 @@ const router = createBrowserRouter([
                },
                {
                   path: "deluxe",
-                  element: <DeluxeRoom />,
+                  element: (
+                     <PrivateRoute>
+                        <DeluxeRoom />
+                     </PrivateRoute>
+                  ),
                },
                {
                   path: "living",
-                  element: <LivingRoom />,
+                  element: (
+                     <PrivateRoute>
+                        <LivingRoom />
+                     </PrivateRoute>
+                  ),
                },
             ],
          },
@@ -44,15 +53,19 @@ const router = createBrowserRouter([
             path: "/register",
             element: <Register />,
          },
-        
+
          {
             path: "/MyBookings",
-            element: <MyBookings />,
+            element: (
+               <PrivateRoute>
+                  <MyBookings />
+               </PrivateRoute>
+            ),
          },
          {
             path: "/Rooms",
             element: <Rooms />,
-            loader: () => fetch('data.json'),
+            loader: () => fetch("http://localhost:5000/rooms"),
          },
          // {
          //    path: '/',
