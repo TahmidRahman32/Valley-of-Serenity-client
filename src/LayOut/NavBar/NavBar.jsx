@@ -1,5 +1,5 @@
 import {   NavLink } from "react-router-dom";
-import logo from "../../assets/logo1.png";
+import logo from "../../assets/fevIcon.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Router/AuthProvider";
 import Swal from "sweetalert2";
@@ -136,7 +136,10 @@ const NavBar = () => {
                      {NavLinks}
                   </ul>
                </div>
-               <img className="bg-white w-48 rounded-lg" src={logo} alt="" />
+               <div className="text-center">
+                  <img className=" w-24 mx-auto rounded-lg" src={logo} alt="" />
+                  <h1 className="font-classic font-medium">VALLEY OF SERENITY</h1>
+               </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                <ul className="menu menu-horizontal px-1">{NavLinks}</ul>
@@ -171,7 +174,7 @@ const NavBar = () => {
                         {/* Put this part before </body> tag */}
                      </li>
                      <li>
-                        <a>Logout</a>
+                        <a className="btn">Logout</a>
                      </li>
                   </ul>
                </div>

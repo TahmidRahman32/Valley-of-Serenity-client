@@ -11,8 +11,8 @@ const PrivateRoute = ({children}) => {
    }
    if(loading){
       return (
-         <div>
-            <RiseLoader size={50} color="#181EA1" />
+         <div className="flex justify-center items-center h-screen">
+            <RiseLoader size={30} color="#181EA1" />
          </div>
       );
    }

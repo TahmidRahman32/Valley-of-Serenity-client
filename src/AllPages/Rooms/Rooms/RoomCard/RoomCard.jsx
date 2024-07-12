@@ -2,6 +2,7 @@ import { useContext} from "react";
 import { FaStar } from "react-icons/fa";
 import { AuthContext } from "../../../../Router/AuthProvider";
 import { Link } from "react-router-dom";
+import { BiSolidOffer } from "react-icons/bi";
 
 
 const RoomCard = ({room}) => {
@@ -37,11 +38,16 @@ const RoomCard = ({room}) => {
                         <FaStar />
                      </span>
                   </p>
-                  <div className="bg-yellow-500 px-2 py-3 rounded-xl">
-                     <h4 className="text-black">
-                        <span className="text-xl font-classic text-white">Special Offers:</span> {special_offers}
-                     </h4>
-                  </div>
+                  
+                     {special_offers ? (
+                        <h3 className="py-2 px-2  rounded-xl text-center font-classic text-black bg-yellow-400 flex">
+                           <span className="font-bold flex items-center">
+                              Special Offers:
+                           </span>{" "}
+                           {special_offers}
+                        </h3>
+                     ) : null}
+                 
                   <div className="flex gap-16 pt-2">
                      <Link
                         to={user ? "/MyBookings" : "/login"}
