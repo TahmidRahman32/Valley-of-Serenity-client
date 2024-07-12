@@ -12,6 +12,8 @@ import LivingRoom from "../AllPages/Home/Room/LivingRoom";
 import MyBookings from "../AllPages/MyBookings/MyBookings/MyBookings";
 import Rooms from "../AllPages/Rooms/Rooms/Rooms";
 import PrivateRoute from "./PrivateRoute";
+import RoomDetails from "../AllPages/Rooms/Rooms/RoomDetails/RoomDetails";
+import EditPage from "../LayOut/NavBar/EditPage";
 
 const router = createBrowserRouter([
    {
@@ -66,6 +68,15 @@ const router = createBrowserRouter([
             path: "/Rooms",
             element: <Rooms />,
             loader: () => fetch("http://localhost:5000/rooms"),
+         },
+         {
+            path: '/roomDetails/:id',
+            element: <PrivateRoute><RoomDetails /></PrivateRoute> ,
+            loader: ({params}) => fetch(`http://localhost:5000/room/${params.id}`)
+         },
+         {
+            path: '/editPage',
+            element: <EditPage />,
          },
          // {
          //    path: '/',
