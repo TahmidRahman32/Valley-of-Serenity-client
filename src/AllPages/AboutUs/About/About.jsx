@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
 
-const MyBookings = () => {
+
+
+const About = () => {
    return (
       <div>
          <section className="flex items-center h-full sm:p-16 bg-gray-900 text-gray-100">
@@ -17,15 +18,12 @@ const MyBookings = () => {
                      points="383.958 182.63 360.042 161.37 338.671 185.412 314.63 164.042 293.37 187.958 317.412 209.329 296.042 233.37 319.958 254.63 341.329 230.588 365.37 251.958 386.63 228.042 362.588 206.671 383.958 182.63"
                   ></polygon>
                </svg>
-               <p className="text-3xl">Looks like our services are currently offline</p>
+               <p className="text-3xl">Up Cumming Data.......</p>
 
-               <Link to={'/rooms'} className="w-2/5 mx-auto  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-blue-800 border bg-blue-800 text-gray-200 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-500 before:ease-out hover:shadow-white hover:text-black hover:before:h-56 hover:before:w-56 rounded-lg">
-                  <span className="relative z-10 font-classic flex items-center gap-2 text-xl">Add to Card</span>
-               </Link>
             </div>
          </section>
       </div>
    );
 };
 
-export default MyBookings;
+export default About;

@@ -14,6 +14,7 @@ import Rooms from "../AllPages/Rooms/Rooms/Rooms";
 import PrivateRoute from "./PrivateRoute";
 import RoomDetails from "../AllPages/Rooms/Rooms/RoomDetails/RoomDetails";
 import EditPage from "../LayOut/NavBar/EditPage";
+import About from "../AllPages/AboutUs/About/About";
 
 const router = createBrowserRouter([
    {
@@ -78,10 +79,10 @@ const router = createBrowserRouter([
             path: '/editPage',
             element: <EditPage />,
          },
-         // {
-         //    path: '/',
-         //    element: <Home />,
-         // },
+         {
+            path: '/about',
+            element: <About/>,
+         },
          // {
          //    path: '/',
          //    element: <Home />,

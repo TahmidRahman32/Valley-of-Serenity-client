@@ -95,6 +95,7 @@ const NavBar = () => {
             <div className="modal" role="dialog">
                <div className="modal-box">
                   <h1 className="text-2xl text-center font-classic">Update Profile</h1>
+                  <h2 className="text-center"><span className="font-classic font-bold">Email:</span> {user?.email}</h2>
                   <div className="card bg-base-100 w-full shrink-0 ">
                      <form onSubmit={updateProfileBtn} className="card-body">
                         <div className="form-control">
@@ -148,7 +149,6 @@ const NavBar = () => {
                <div className="md:text-center hidden md:flex">
                   <div>
                      <h2 className="font-bold">{user?.displayName}</h2>
-                     <h2>{user?.email}</h2>
                   </div>
                </div>
 
