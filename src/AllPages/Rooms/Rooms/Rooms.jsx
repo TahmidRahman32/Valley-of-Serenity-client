@@ -5,7 +5,7 @@ import horizontal from "../../../assets/gallery/hr-geo-sukarno-1-removebg-previe
 
 const Rooms = () => {
    const roomsData = useLoaderData();
-   console.log(roomsData);
+   // console.log(roomsData);
    return (
       <div>
          <RoomBanner></RoomBanner>
