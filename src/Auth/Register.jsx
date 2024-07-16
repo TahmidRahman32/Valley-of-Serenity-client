@@ -1,36 +1,41 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LogInLogo from "../assets/login/img-12-removebg-preview.png";
 import { useContext, useState } from "react";
 import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
 import { AuthContext } from "../Router/AuthProvider";
 import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
    const [showPass, setShowPass] = useState(false);
    const { createUser } = useContext(AuthContext);
-
+   const navigate = useNavigate();
    const handleSignUpBtn = (e) => {
       e.preventDefault();
       const form = e.target;
       const name = form.name.value;
       const email = form.email.value;
       const password = form.password.value;
-      console.log(email, password, name);
+      // console.log(email, password, name);
 
-         if (password.length < 6) {
-            toast.error("Password must be 6 Character");
-            return;
-         } else if (!/[A-Z]/.test(password)) {
-            toast.error("Please Add Minimum one Uppercase");
-            return;
-         } else if (!/[a-z]/.test(password)) {
-            toast.error("Please Add Minimum one lowercase");
-            return;
-         }
+      if (password.length < 6) {
+         toast.error("Password must be 6 Character");
+         return;
+      } else if (!/[A-Z]/.test(password)) {
+         toast.error("Please Add Minimum one Uppercase");
+         return;
+      } else if (!/[a-z]/.test(password)) {
+         toast.error("Please Add Minimum one lowercase");
+         return;
+      }
       createUser(email, password)
          .then((result) => {
-            console.log(result.user);
+            updateProfile(result.user, {
+               displayName: name,
+            });
+            navigate('/')
+
          })
          .catch((error) => {
             console.log(error);

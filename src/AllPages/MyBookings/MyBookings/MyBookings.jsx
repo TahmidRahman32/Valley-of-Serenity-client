@@ -3,19 +3,19 @@ import { AuthContext } from "../../../Router/AuthProvider";
 import BookingCard from "../BookingCard/BookingCard";
 import DataFound from "../../../LayOut/DataFound/DataFound";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const MyBookings = () => {
    const [bookings, setBooking] = useState([]);
-   const { date, guest, _id } = bookings;
+
    const { user } = useContext(AuthContext);
    const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
    useEffect(() => {
-      fetch(url)
-         .then((res) => res.json())
-         .then((data) => {
-            setBooking(data);
-         });
+      axios.get(url, {withCredentials:true}).then((res) => {
+         // console.log(res.data);
+         setBooking(res.data);
+      });
    }, [url]);
    const handleDeleted = (id) => {
       Swal.fire({
@@ -46,9 +46,7 @@ const MyBookings = () => {
          }
       });
    };
-
-
-
+ 
    return (
       <div className=" mx-5 h-screen">
          {bookings.length > 0 ? (
@@ -59,7 +57,7 @@ const MyBookings = () => {
                </div>
                <div className="grid grid-cols-1  gap-10 md:grid-cols-2 lg:grid-cols-3">
                   {bookings.map((booking) => (
-                     <BookingCard key={booking._id} booking={booking} handleDeleted={handleDeleted} ></BookingCard>
+                     <BookingCard key={booking._id} booking={booking} handleDeleted={handleDeleted}></BookingCard>
                   ))}
                </div>
             </section>

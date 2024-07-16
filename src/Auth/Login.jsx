@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LogInLogo from "../assets/login/img-12-removebg-preview.png";
 import { FcGoogle } from "react-icons/fc";
 import { FaEyeSlash, FaFacebookSquare, FaGithub } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Router/AuthProvider";
+import axios from "axios";
 
 const Login = () => {
    const [showPass, setShowPass] = useState(false);
-   const { login, googleLogin, } = useContext(AuthContext);
+   const { login, googleLogin } = useContext(AuthContext);
+   const location = useLocation();
+   const navigate = useNavigate();
 
    const loginHandleBtn = (e) => {
       e.preventDefault();
@@ -18,6 +21,15 @@ const Login = () => {
       login(email, password)
          .then((result) => {
             console.log(result.user);
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            const user = { email };
+            axios.post("http://localhost:5000/jwt", user, { withCredentials: true }).then((res) => {
+               console.log(res.data);
+               if (res.data.success) {
+                  navigate(location?.state ? location?.state : "/login");
+               }
+            });
          })
          .catch((error) => {
             console.log(error);
@@ -26,13 +38,22 @@ const Login = () => {
    const handleGoogleLogin = () => {
       googleLogin()
          .then((result) => {
-            console.log(result.user);
+            console.log(result.user.email);
+            const email = result.user.email;
+            const user = { email };
+            axios.post("http://localhost:5000/jwt", user, { withCredentials: true }).then((res) => {
+               console.log(res.data);
+               if (res.data.success) {
+                  navigate(location?.state ? location?.state : "/login");
+               }
+            });
+            // navigate(location?.state ? location?.state : "/login");
          })
          .catch((error) => {
             console.log(error);
          });
    };
-  
+
    // const handleFacebookLogin = () => {
    //    facebookLogin()
    //       .then((result) => {

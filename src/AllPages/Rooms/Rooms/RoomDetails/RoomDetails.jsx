@@ -7,7 +7,7 @@ import { SiZelle } from "react-icons/si";
 import { FaUserFriends } from "react-icons/fa";
 import welcome from "../../../../assets/rooms/welcomePic.png";
 import Swal from "sweetalert2";
-import toast from "react-hot-toast";
+
 import { useContext } from "react";
 import { AuthContext } from "../../../../Router/AuthProvider";
 
@@ -18,41 +18,47 @@ const RoomDetails = () => {
    const { room_images, room_size, price_per_night, room_description, title, special_offers } = roomDetails;
    // console.log(room_images[3]);
 
-     const handleRoomConfirm = (e) => {
-        e.preventDefault();
+   const handleRoomConfirm = (e) => {
+      e.preventDefault();
 
-        const form = e.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const date = form.date.value;
-        const guest = form.guest.value;
-        const bookings = { name, email, date, guest, roomImg: room_images[0], room_size: room_size, title: title, description: room_description };
-        console.log(bookings);
-        if (guest < 1) {
-           toast.error("Please Guest List add");
-           return;
-        }
+      const form = e.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const date = form.date.value;
+      const guest = form.guest.value;
+      const bookings = { name, email, date, guest, roomImg: room_images[0], room_size: room_size, title: title, description: room_description };
+      console.log(bookings);
+      if (guest < 1) {
+         Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Please Guest List add",
+            showConfirmButton: false,
+            timer: 1500,
+         });
+         return;
+      }
 
-        fetch("http://localhost:5000/bookings", {
-           method: "POST",
-           headers: {
-              "content-type": "application/json",
-           },
-           body: JSON.stringify(bookings),
-        })
-           .then((res) => res.json())
-           .then((data) => {
-              if (data.insertedId) {
-                 Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Your Booking successfully",
-                    showConfirmButton: false,
-                    timer: 1500,
-                 });
-              }
-           });
-     };
+      fetch("http://localhost:5000/bookings", {
+         method: "POST",
+         headers: {
+            "content-type": "application/json",
+         },
+         body: JSON.stringify(bookings),
+      })
+         .then((res) => res.json())
+         .then((data) => {
+            if (data.insertedId) {
+               Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Your Booking successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+               });
+            }
+         });
+   };
    return (
       <div>
          {/* Modal page */}
@@ -142,7 +148,6 @@ const RoomDetails = () => {
                         </div>
                      </div>
                   </form>
-                  
                </div>
             </div>
          </dialog>
@@ -152,19 +157,19 @@ const RoomDetails = () => {
                <p className="text-xs font-semibold tracking-wider text-blue-600 uppercase">#Valley of Serenity</p>
                <div className="grid grid-cols-2 gap-8">
                   <div className="relative">
-                     <img className="w-[580px] h-[330px] rounded-lg " src={room_images[0]} alt="" />
+                     <img className="w-[580px] h-[330px] rounded-lg " src={room_images[0] ? room_images[0] : <div className="skeleton h-32 w-32"></div>} alt="" />
                      <h2 className="bg-[#8A8C8CB3] px-5 py-2 bottom-5 rounded-l-md right-5 absolute text-xl font-classic text-white">Bad Room</h2>
                   </div>
                   <div className="relative">
-                     <img className="w-[580px] h-[330px] rounded-lg " src={room_images[1]} alt="" />
+                     <img className="w-[580px] h-[330px] rounded-lg " src={room_images[1] ? room_images[1] : <div className="skeleton h-32 w-32"></div>} alt="" />
                      <h2 className="bg-[#8A8C8CB3] px-5 py-2 bottom-5 rounded-l-md right-5 absolute text-xl font-classic text-white">BathRoom</h2>
                   </div>
                   <div className="relative">
-                     <img className="w-[580px] h-[330px] rounded-lg " src={room_images[2]} alt="" />
+                     <img className="w-[580px] h-[330px] rounded-lg " src={room_images[2] ? room_images[2] : <div className="skeleton h-32 w-32"></div>} alt="" />
                      <h2 className="bg-[#8A8C8CB3] px-5 py-2 bottom-5 rounded-l-md right-5 absolute text-xl font-classic text-white">living Room</h2>
                   </div>
                   <div className="relative">
-                     <img className="w-[580px] h-[330px] rounded-lg " src={room_images[3]} alt="" />
+                     <img className="w-[580px] h-[330px] rounded-lg " src={room_images[3] ? room_images[3] : <div className="skeleton h-32 w-32"></div>} alt="" />
                      <h2 className="bg-[#8A8C8CB3] px-5 py-2 bottom-5 rounded-l-md right-5 absolute text-xl font-classic text-white">Window</h2>
                   </div>
                </div>

@@ -102,7 +102,7 @@ const NavBar = () => {
                            <label className="label">
                               <span className="label-text">User Name</span>
                            </label>
-                           <input type="text" name="name" placeholder="Your FullName" className="input input-bordered" required />
+                           <input type="text" name="name" placeholder="Your FullName" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                            <label className="label">

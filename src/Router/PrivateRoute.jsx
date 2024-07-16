@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
 import { RiseLoader } from "react-spinners";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 
 const PrivateRoute = ({children}) => {
    const { user, loading } = useContext(AuthContext);
+   const location = useLocation();
+   
    if(user?.email){
       return children;
    }
@@ -16,7 +18,7 @@ const PrivateRoute = ({children}) => {
          </div>
       );
    }
-   return <Navigate to={'/login'} replace/>
+   return <Navigate state={location.pathname} to={'/login'} replace/>
 };
 
 export default PrivateRoute;
