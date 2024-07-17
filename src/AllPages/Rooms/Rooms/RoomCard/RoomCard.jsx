@@ -1,4 +1,4 @@
-import { FaStar, } from "react-icons/fa";
+import { FaMapMarkerAlt, FaStar, } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
 
@@ -114,7 +114,7 @@ const RoomCard = ({ room }) => {
                   <h3 className="text-3xl font-bold font-classic">{price_per_night}/-</h3>
                   <p className="font-style">per Night</p>
                </div>
-               <div className="p-6 space-y-4 lg:col-span-5">
+               <div className="p-3 space-y-4 lg:col-span-5">
                   <h3 className="text-2xl font-semibold sm:text-2xl font-classic ">
                      Hotel: <span className="text-xl text-blue-600">{hotel_name}</span>
                   </h3>
@@ -123,8 +123,8 @@ const RoomCard = ({ room }) => {
                      <span className="sm:text-4xl font-style"></span> {title}
                   </h3>
 
-                  <p className="font-classic mt-7">{room_description}</p>
-                  <p className="font-classic mt-7 flex items-center gap-2">
+                  <p className="font-classic mt-3">{room_description}</p>
+                  <p className="font-classic mt-3 flex items-center gap-2">
                      5/
                      <span className="flex items-center text-yellow-500">
                         <FaStar />
@@ -134,6 +134,11 @@ const RoomCard = ({ room }) => {
                         <FaStar />
                      </span>
                   </p>
+                  <div className="bg-[#ABABAB99] w-1/2 px-6 py-1 rounded-md ">
+                     <Link className="text-blue-800 text-center flex items-center font-classic gap-1" to={"/map"}>
+                        <FaMapMarkerAlt color="#B81207" /> Hotel Location
+                     </Link>
+                  </div>
 
                   {special_offers ? (
                      <h3 className="py-2 px-2  rounded-xl text-center font-classic text-black bg-yellow-400 flex">

@@ -1,31 +1,31 @@
-import { useContext } from "react";
 import { FaStar } from "react-icons/fa";
 import { GrUpdate } from "react-icons/gr";
 import { MdDeleteForever } from "react-icons/md";
-import { AuthContext } from "../../../Router/AuthProvider";
 
-const BookingCard = ({ booking, handleDeleted,  }) => {
-   const { user } = useContext(AuthContext);
+import useAuth from "../../../Hooks/useAuth";
+
+const BookingCard = ({ booking, handleDeleted }) => {
+   const { user } = useAuth();
    // console.log(booking);
    const { name, email, date, guest, roomImg, room_size, _id } = booking;
 
-      // const HandleUpdate = (e) => {
-      //    e.preventDefault();
-      //    fetch(`http://localhost:5000/bookings/${_id}`, {
-      //       method: "PUT",
-      //       headers: {
-      //          "content-type": "application/json",
-      //       },
-      //       body: JSON.stringify({
-      //          date: date,
-      //          guest: guest,
-      //       }),
-      //    })
-      //       .then((res) => res.json())
-      //       .then((data) => {
-      //          console.log(data);
-      //       });
-      // };
+   // const HandleUpdate = (e) => {
+   //    e.preventDefault();
+   //    fetch(`http://localhost:5000/bookings/${_id}`, {
+   //       method: "PUT",
+   //       headers: {
+   //          "content-type": "application/json",
+   //       },
+   //       body: JSON.stringify({
+   //          date: date,
+   //          guest: guest,
+   //       }),
+   //    })
+   //       .then((res) => res.json())
+   //       .then((data) => {
+   //          console.log(data);
+   //       });
+   // };
 
    return (
       <div>
@@ -37,7 +37,7 @@ const BookingCard = ({ booking, handleDeleted,  }) => {
                   <p className="text-xs font-semibold tracking-wider text-blue-600 uppercase">#Valley of Serenity</p>
                   <h2 className="font-classic  text-3xl">Update Your Information</h2>
                </div>
-               <form  className="card-body">
+               <form className="card-body">
                   <div className="form-control">
                      <label className="label">
                         <span className="label-text">User Name</span>
@@ -126,7 +126,7 @@ const BookingCard = ({ booking, handleDeleted,  }) => {
                         Delete <MdDeleteForever />
                      </button>
                   </div>
-                  <div  className="flex items-center text-sm font-style  w-2/3 hover:bg-gray-200 rounded ">
+                  <div className="flex items-center text-sm font-style  w-2/3 hover:bg-gray-200 rounded ">
                      <button className="font-bold flex items-center gap-1 text-center" onClick={() => document.getElementById("my_modal_4").showModal()}>
                         Update <GrUpdate size={10} />
                      </button>

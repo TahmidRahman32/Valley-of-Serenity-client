@@ -1,19 +1,19 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../Router/AuthProvider";
+import { useEffect, useState } from "react";
+
 import BookingCard from "../BookingCard/BookingCard";
 import DataFound from "../../../LayOut/DataFound/DataFound";
 import Swal from "sweetalert2";
 import axios from "axios";
+import useAuth from "../../../Hooks/useAuth";
 
 const MyBookings = () => {
    const [bookings, setBooking] = useState([]);
 
-   const { user } = useContext(AuthContext);
+   const { user } = useAuth();
    const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
    useEffect(() => {
-      axios.get(url,{withCredentials: true})
-      .then((res) => {
+      axios.get(url, { withCredentials: true }).then((res) => {
          // console.log(res.data);
          setBooking(res.data);
       });
@@ -47,7 +47,7 @@ const MyBookings = () => {
          }
       });
    };
- 
+
    return (
       <div className=" mx-5 h-screen">
          {bookings.length > 0 ? (

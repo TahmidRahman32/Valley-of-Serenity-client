@@ -1,14 +1,14 @@
-import {   NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/fevIcon.png";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Router/AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
+import useAuth from "../../Hooks/useAuth";
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
    const [theme, setTheme] = useState("light");
-   const { user, logOut } = useContext(AuthContext);
+   const { user, logOut } = useAuth();
 
    const handleTheme = (e) => {
       const check = e.target.checked;
@@ -50,20 +50,20 @@ const NavBar = () => {
       });
    };
 
-    const updateProfileBtn = (e) => {
-       e.preventDefault();
-       const form = e.target;
-       const name = form.name.value;
-       const photo = form.photo.value;
-       updateProfile(user, {
-          displayName: name,
-          photoURL: photo,
-       })
-          .then(() => {
-             toast.success("Your Profile Updated!!");
-          })
-          .catch(() => {});
-    };
+   const updateProfileBtn = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value;
+      const photo = form.photo.value;
+      updateProfile(user, {
+         displayName: name,
+         photoURL: photo,
+      })
+         .then(() => {
+            toast.success("Your Profile Updated!!");
+         })
+         .catch(() => {});
+   };
 
    const NavLinks = (
       <div className="flex gap-10">
@@ -95,14 +95,16 @@ const NavBar = () => {
             <div className="modal" role="dialog">
                <div className="modal-box">
                   <h1 className="text-2xl text-center font-classic">Update Profile</h1>
-                  <h2 className="text-center"><span className="font-classic font-bold">Email:</span> {user?.email}</h2>
+                  <h2 className="text-center">
+                     <span className="font-classic font-bold">Email:</span> {user?.email}
+                  </h2>
                   <div className="card bg-base-100 w-full shrink-0 ">
                      <form onSubmit={updateProfileBtn} className="card-body">
                         <div className="form-control">
                            <label className="label">
                               <span className="label-text">User Name</span>
                            </label>
-                           <input type="text" name="name" placeholder="Your FullName" className="input input-bordered" />
+                           <input type="text" name="name" placeholder="Your FullName" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                            <label className="label">

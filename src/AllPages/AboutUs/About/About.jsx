@@ -19,6 +19,7 @@ const About = () => {
                   ></polygon>
                </svg>
                <p className="text-3xl">Up Cumming Data.......</p>
+               <p>akhon amar HSC exam</p>
 
             </div>
          </section>

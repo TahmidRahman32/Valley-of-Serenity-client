@@ -1,15 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import LogInLogo from "../assets/login/img-12-removebg-preview.png";
-import { useContext, useState } from "react";
+import {useState } from "react";
 import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
-import { AuthContext } from "../Router/AuthProvider";
+
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
+import useAuth from "../Hooks/useAuth";
 
 const Register = () => {
    const [showPass, setShowPass] = useState(false);
-   const { createUser } = useContext(AuthContext);
+   const { createUser } = useAuth()
    const navigate = useNavigate();
    const handleSignUpBtn = (e) => {
       e.preventDefault();
