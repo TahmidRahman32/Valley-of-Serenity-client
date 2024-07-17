@@ -4,10 +4,12 @@ import helpImg2 from "../../../assets/Home/pexels-shkrabaanthony-5467586.jpg";
 import { PiHashStraightBold } from "react-icons/pi";
 import { GrFlows } from "react-icons/gr";
 import { IoCallSharp, IoPersonAdd } from "react-icons/io5";
+import EditPage from "../../../LayOut/NavBar/EditPage";
 
 const HelpSection = () => {
    return (
       <div className="my-10">
+         <EditPage></EditPage>
          <div className="flex gap-16 justify-center  md:my-20">
             <div className="space-y-7 mt-8 relative animate__animated animate__slideInLeft animate__slow">
                <h1 className="text-6xl font-bold font-style">

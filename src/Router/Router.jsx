@@ -94,6 +94,14 @@ const router = createBrowserRouter([
             element: <BookNow />,
             loader: ({ params }) => fetch(`http://localhost:5000/room/${params.id}`),
          },
+         {
+            path: '/map',
+            element: <EditPage/>,
+         },
+         // {
+         //    path: '/',
+         //    element: <Home />,
+         // },
          // {
          //    path: '/',
          //    element: <Home />,

@@ -1,6 +1,8 @@
 import { ReactTyped } from "react-typed";
 import MovingText from "react-moving-text";
 import "animate.css";
+import { Link } from "react-router-dom";
+
 const BannerText = () => {
    return (
       <div className="flex justify-center items-center min-h-[calc(100vh-112px)] rounded-md bg bg-gradient-to-r from-[#01091380] to-[#20215130] animate__animated animate__zoomInDown animate__fast">
@@ -24,6 +26,10 @@ const BannerText = () => {
                      </button>
                   </div>
                </div>
+               <div>
+                  <Link to={"/map"}>Hotel Location</Link>
+               </div>
+               <div></div>
             </div>
          </div>
       </div>
