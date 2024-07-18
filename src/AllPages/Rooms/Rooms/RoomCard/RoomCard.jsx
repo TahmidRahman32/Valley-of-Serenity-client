@@ -111,7 +111,7 @@ const RoomCard = ({ room }) => {
             <div className="block relative max-w-sm gap-3 shadow-2xl  mx-auto rounded-xl  sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 bg-gray-900">
                <img src={room_images[0] ? room_images[0] : <div className="skeleton h-32 w-32"></div>} alt="" className="object-cover  w-full h-96 rounded-xl sm:h-96 lg:col-span-7 bg-gray-500" />
                <div className="absolute left-2 top-2 bg-yellow-600 py-2 px-6 ">
-                  <h3 className="text-3xl font-bold font-classic">{price_per_night}/-</h3>
+                  <h3 className="text-3xl font-bold font-classic">${price_per_night}/-</h3>
                   <p className="font-style">per Night</p>
                </div>
                <div className="p-3 space-y-4 lg:col-span-5">

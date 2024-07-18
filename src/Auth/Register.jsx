@@ -7,6 +7,7 @@ import { IoEyeSharp } from "react-icons/io5";
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 import useAuth from "../Hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
    const [showPass, setShowPass] = useState(false);
@@ -44,6 +45,9 @@ const Register = () => {
    };
    return (
       <div>
+         <Helmet>
+            <title>Valley of Serenity Register</title>
+         </Helmet>
          <div>
             <div className="hero bg-base-200 min-h-screen">
                <div className="hero-content flex-col lg:flex-row gap-28">

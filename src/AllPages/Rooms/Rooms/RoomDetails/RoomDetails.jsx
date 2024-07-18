@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 
 import { useContext } from "react";
 import { AuthContext } from "../../../../Router/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const RoomDetails = () => {
    const roomDetails = useLoaderData();
@@ -61,6 +62,9 @@ const RoomDetails = () => {
    };
    return (
       <div>
+         <Helmet>
+            <title>Valley of Serenity Room Details</title>
+         </Helmet>
          {/* Modal page */}
          {/* You can open the modal using document.getElementById('ID').showModal() method */}
 
@@ -140,9 +144,7 @@ const RoomDetails = () => {
                            {/* <form method="dialog"> */}
 
                            <button className="w-2/5 mx-auto  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-blue-800 border bg-blue-800 text-gray-200 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-500 before:ease-out hover:shadow-white hover:text-black hover:before:h-56 hover:before:w-56 rounded-lg">
-                              {/* <span className="relative z-10 font-classic flex items-center gap-2 text-xl">Confirm</span> */}
-
-                              {/* if there is a button in form, it will close the modal */}
+                            
                               <span className="relative z-10 font-classic flex items-center gap-2 text-xl">Confirm</span>
                            </button>
                         </div>

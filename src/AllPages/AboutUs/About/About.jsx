@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet";
 
 
 
 const About = () => {
    return (
       <div>
+         <Helmet>
+            <title>Valley of Serenity About</title>
+         </Helmet>
          <section className="flex items-center h-screen sm:p-16 ">
             <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8 space-y-8 text-center sm:max-w-md">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-40 h-40 text-gray-600">
@@ -20,7 +24,6 @@ const About = () => {
                </svg>
                <p className="text-3xl">Up Cumming Data.......</p>
                <p>akhon amar HSC exam</p>
-
             </div>
          </section>
       </div>

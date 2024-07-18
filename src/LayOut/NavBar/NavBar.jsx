@@ -104,7 +104,7 @@ const NavBar = () => {
                            <label className="label">
                               <span className="label-text">User Name</span>
                            </label>
-                           <input type="text" name="name" placeholder="Your FullName" className="input input-bordered" required />
+                           <input type="text" name="name" defaultValue={user?.displayName} placeholder="Your FullName" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                            <label className="label">
@@ -120,7 +120,7 @@ const NavBar = () => {
                      </form>
                   </div>
                   <div className="modal-action">
-                     <label htmlFor="my_modal_6" className="btn bg-red-300 text-xl">
+                     <label htmlFor="my_modal_6" className="btn bg-red-500 text-xl text-white">
                         Close!
                      </label>
                   </div>
@@ -140,7 +140,7 @@ const NavBar = () => {
                   </ul>
                </div>
                <div className="text-center">
-                  <img className=" w-24 mx-auto rounded-lg" src={logo} alt="" />
+                  <img className=" w-20 h-20 py-3 mx-auto rounded-full bg-white " src={logo} alt="" />
                   <h1 className="font-classic font-medium">VALLEY OF SERENITY</h1>
                </div>
             </div>

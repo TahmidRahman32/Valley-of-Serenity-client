@@ -5,9 +5,13 @@ import DataFound from "../../../LayOut/DataFound/DataFound";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useAuth from "../../../Hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const MyBookings = () => {
    const [bookings, setBooking] = useState([]);
+   const [update, setUpdate] = useState([]);
+   console.log(update);
+   
 
    const { user } = useAuth();
    const url = `http://localhost:5000/bookings?email=${user?.email}`;
@@ -47,9 +51,23 @@ const MyBookings = () => {
          }
       });
    };
+   const handleUpdateBtn = (id) => {
+      console.log(id);
+      fetch(`http://localhost:5000/bookings/${id}`)
+         .then((res) => res.json())
+         .then((data) => {
+            console.log(data);
+            setUpdate(data);
+         });
+   };
+
+  
 
    return (
       <div className=" mx-5 h-screen">
+         <Helmet>
+            <title>Valley of Serenity MyBooking</title>
+         </Helmet>
          {bookings.length > 0 ? (
             <section className="py-6 sm:py-12 ">
                <div className="space-y-2 text-center">
@@ -58,7 +76,13 @@ const MyBookings = () => {
                </div>
                <div className="grid grid-cols-1  gap-10 md:grid-cols-2 lg:grid-cols-3">
                   {bookings.map((booking) => (
-                     <BookingCard key={booking._id} booking={booking} handleDeleted={handleDeleted}></BookingCard>
+                     <BookingCard 
+                     key={booking._id}
+                      booking={booking} 
+                      handleDeleted={handleDeleted} 
+                      handleUpdateBtn={handleUpdateBtn} 
+                      update={update}
+                      ></BookingCard>
                   ))}
                </div>
             </section>

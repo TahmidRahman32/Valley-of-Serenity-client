@@ -6,11 +6,13 @@ import { IoEyeSharp } from "react-icons/io5";
 import { useState } from "react";
 import axios from "axios";
 import useAuth from "../Hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
    const [showPass, setShowPass] = useState(false);
-   const { login, googleLogin } = useAuth();
+   const { login, googleLogin, gitHubLogin } = useAuth();
    const location = useLocation();
+   
    const navigate = useNavigate();
 
    const loginHandleBtn = (e) => {
@@ -28,6 +30,7 @@ const Login = () => {
                console.log(res.data);
                if (res.data.success) {
                   navigate(location?.state ? location?.state : "/login");
+                  navigate('/')
                }
             });
          })
@@ -45,6 +48,7 @@ const Login = () => {
                console.log(res.data);
                if (res.data.success) {
                   navigate(location?.state ? location?.state : "/login");
+                 
                }
             });
             // navigate(location?.state ? location?.state : "/login");
@@ -53,6 +57,15 @@ const Login = () => {
             console.log(error);
          });
    };
+   const handleGitHubBtn =()=>{
+     gitHubLogin()
+     .then(result =>{
+      console.log(result.user);
+     })
+     .catch(error =>{
+      console.log(error);
+     })
+   }
 
    // const handleFacebookLogin = () => {
    //    facebookLogin()
@@ -65,6 +78,9 @@ const Login = () => {
    // };
    return (
       <div>
+         <Helmet>
+            <title>Valley of Serenity Login</title>
+         </Helmet>
          <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row gap-28">
                <div className="text-center lg:text-left animate__animated animate__backInLeft animate__slow">
@@ -134,7 +150,7 @@ const Login = () => {
                                  <FcGoogle size={24} />
                               </button>
                            </div>
-                           <div className="w-full md:w-1/3 px-3 pt-4 mx-2 border-t border-gray-400">
+                           <div onClick={handleGitHubBtn} className="w-full md:w-1/3 px-3 pt-4 mx-2 border-t border-gray-400">
                               <button className="appearance-none flex items-center justify-center block w-full bg-gray-100 text-gray-700 shadow border border-web-color rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none">
                                  <FaGithub size={24} />
                               </button>

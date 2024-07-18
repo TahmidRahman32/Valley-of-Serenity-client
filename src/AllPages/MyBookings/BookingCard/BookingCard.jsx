@@ -1,31 +1,46 @@
 import { FaStar } from "react-icons/fa";
 import { GrUpdate } from "react-icons/gr";
-import { MdDeleteForever } from "react-icons/md";
+import { MdDeleteForever, MdRateReview } from "react-icons/md";
 
 import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
-const BookingCard = ({ booking, handleDeleted }) => {
+const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
    const { user } = useAuth();
    // console.log(booking);
    const { name, email, date, guest, roomImg, room_size, _id } = booking;
+   const HandleUpdate = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const formDate = form.formDate.value;
+      const formGuest = form.formGuest.value;
+    
 
-   // const HandleUpdate = (e) => {
-   //    e.preventDefault();
-   //    fetch(`http://localhost:5000/bookings/${_id}`, {
-   //       method: "PUT",
-   //       headers: {
-   //          "content-type": "application/json",
-   //       },
-   //       body: JSON.stringify({
-   //          date: date,
-   //          guest: guest,
-   //       }),
-   //    })
-   //       .then((res) => res.json())
-   //       .then((data) => {
-   //          console.log(data);
-   //       });
-   // };
+      fetch(`http://localhost:5000/bookings/${update._id}`, {
+         method: "PUT",
+         headers: {
+            "content-type": "application/json",
+         },
+         body: JSON.stringify({
+            date: formDate,
+            guest: formGuest,
+         }),
+      })
+         .then((res) => res.json())
+         .then((data) => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+               Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Your Booking Update successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+               });
+            }
+         });
+   };
 
    return (
       <div>
@@ -37,7 +52,7 @@ const BookingCard = ({ booking, handleDeleted }) => {
                   <p className="text-xs font-semibold tracking-wider text-blue-600 uppercase">#Valley of Serenity</p>
                   <h2 className="font-classic  text-3xl">Update Your Information</h2>
                </div>
-               <form className="card-body">
+               <form onSubmit={HandleUpdate} className="card-body">
                   <div className="form-control">
                      <label className="label">
                         <span className="label-text">User Name</span>
@@ -54,14 +69,14 @@ const BookingCard = ({ booking, handleDeleted }) => {
                      <label className="label">
                         <span className="label-text">Date</span>
                      </label>
-                     <input type="date" name="date" defaultValue={date} className="input input-bordered" required />
+                     <input type="date" name="formDate" defaultValue={update.date} className="input input-bordered" required />
                   </div>
                   <div className="form-control">
                      <label className="label">
                         <span className="label-text">Guest</span>
                      </label>
                      {/* <input type="tel" name="guest" placeholder="Guest" className="input input-bordered" required /> */}
-                     <input type="number" step="any" className="input input-bordered " name="guest" placeholder="Guest" defaultValue={guest} aria-invalid="false"></input>
+                     <input type="number" step="any" className="input input-bordered " name="formGuest" placeholder="Guest" defaultValue={update.guest} aria-invalid="false"></input>
                   </div>
 
                   <div className="">
@@ -86,7 +101,7 @@ const BookingCard = ({ booking, handleDeleted }) => {
                </div>
             </div>
          </dialog>
-         <div className="card card-side bg-base-100 shadow-xl p-4">
+         <div className="card card-side bg-base-100 shadow-xl ">
             <img className="w-64 rounded-lg" src={roomImg} alt="Movie" />
 
             <div className="card-body">
@@ -120,16 +135,22 @@ const BookingCard = ({ booking, handleDeleted }) => {
                      </p>
                   </div>
                </div>
-               <div className=" grid grid-cols-2">
+               <div className=" grid grid-cols-2 gap-x-6 ">
                   <div onClick={() => handleDeleted(_id)} className="flex items-center text-sm font-style  w-2/3 hover:bg-gray-200 rounded ">
                      <button className="font-bold flex items-center gap-1 text-center">
                         Delete <MdDeleteForever />
                      </button>
                   </div>
-                  <div className="flex items-center text-sm font-style  w-2/3 hover:bg-gray-200 rounded ">
+                  <div onClick={() => handleUpdateBtn(_id)} className="flex items-center text-sm font-style  w-2/3 hover:bg-gray-200 rounded ">
                      <button className="font-bold flex items-center gap-1 text-center" onClick={() => document.getElementById("my_modal_4").showModal()}>
                         Update <GrUpdate size={10} />
                      </button>
+                  </div>
+                  <div></div>
+                  <div className="flex items-center text-sm font-style  w-2/3 hover:bg-gray-200 rounded mt-1">
+                     <Link to={'/'} className="font-bold flex items-center gap-1 text-center">
+                        Reviews <MdRateReview size={15} color="#D7A507" />
+                     </Link>
                   </div>
                </div>
             </div>
