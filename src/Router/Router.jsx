@@ -16,6 +16,7 @@ import RoomDetails from "../AllPages/Rooms/Rooms/RoomDetails/RoomDetails";
 import EditPage from "../LayOut/NavBar/EditPage";
 import About from "../AllPages/AboutUs/About/About";
 import BookNow from "../AllPages/Rooms/Rooms/RoomCard/BookNow";
+import ReviewsFrom from "../AllPages/MyBookings/MyBookings/ReviewsFrom/ReviewsFrom";
 
 const router = createBrowserRouter([
    {
@@ -95,13 +96,13 @@ const router = createBrowserRouter([
             loader: ({ params }) => fetch(`http://localhost:5000/room/${params.id}`),
          },
          {
-            path: '/map',
-            element: <EditPage/>,
+            path: "/map",
+            element: <EditPage />,
          },
-         // {
-         //    path: '/',
-         //    element: <Home />,
-         // },
+         {
+            path: "/reviews",
+            element: <ReviewsFrom />,
+         },
          // {
          //    path: '/',
          //    element: <Home />,

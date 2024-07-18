@@ -84,7 +84,7 @@ const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
                      <div className="text-center">
                         {/* <form method="dialog"> */}
 
-                        <button className="w-2/5 mx-auto  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-blue-800 border bg-blue-800 text-gray-200 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-500 before:ease-out hover:shadow-white hover:text-black hover:before:h-56 hover:before:w-56 rounded-lg">
+                        <button className="w-2/5 mx-auto  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-blue-800 border bg-blue-800 text-gray-200 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-500 before:ease-out hover:shadow-white hover:text-black hover:before:h-56 hover:before:w-96 rounded-lg">
                            {/* <span className="relative z-10 font-classic flex items-center gap-2 text-xl">Confirm</span> */}
 
                            {/* if there is a button in form, it will close the modal */}
@@ -147,9 +147,9 @@ const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
                      </button>
                   </div>
                   <div></div>
-                  <div className="flex items-center text-sm font-style  w-2/3 hover:bg-gray-200 rounded mt-1">
-                     <Link to={'/'} className="font-bold flex items-center gap-1 text-center">
-                        Reviews <MdRateReview size={15} color="#D7A507" />
+                  <div className="flex items-center text-sm font-style bg-blue-700 py-1  w-2/3 hover:bg-gray-200  rounded mt-1">
+                     <Link to={"/reviews"} className="font-bold flex items-center gap-1 text-center text-white hover:text-black mx-auto">
+                        Review <MdRateReview size={15} color="#F3BA08" />
                      </Link>
                   </div>
                </div>
