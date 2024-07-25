@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
 import HelpSection from "../HelpSection/HelpSection";
 import Room from "../Room/Room";
+import Reviews from "../Reviews/Reviews";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
          <HelpSection></HelpSection>
          <Room></Room>
          <Gallery></Gallery>
+         <Reviews></Reviews>
       </div>
    );
 };

@@ -1,4 +1,4 @@
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 import useAuth from "../../../../Hooks/useAuth";
 import { Helmet } from "react-helmet";
 
@@ -23,15 +23,15 @@ const ReviewsFrom = () => {
            .then((res) => res.json())
            .then((data) => {
               console.log(data);
-              //   if (data.modifiedCount > 0) {
-              //      Swal.fire({
-              //         position: "top-end",
-              //         icon: "success",
-              //         title: "Your Booking Update successfully",
-              //         showConfirmButton: false,
-              //         timer: 1500,
-              //      });
-              //   }
+                if (data.insertedId) {
+                   Swal.fire({
+                      position: "top-end",
+                      icon: "success",
+                      title: "Your Booking Update successfully",
+                      showConfirmButton: false,
+                      timer: 1500,
+                   });
+                }
            });
      };
    return (
