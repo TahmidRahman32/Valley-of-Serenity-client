@@ -70,7 +70,7 @@ const router = createBrowserRouter([
          {
             path: "/Rooms",
             element: <Rooms />,
-            loader: () => fetch("http://localhost:5000/rooms"),
+            // loader: () => fetch("http://localhost:5000/rooms"),
          },
          {
             path: "/roomDetails/:id",

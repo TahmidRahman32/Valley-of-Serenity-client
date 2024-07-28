@@ -1,18 +1,40 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Review from "./Review/Review";
-import axios from "axios";
+import { ClipLoader} from "react-spinners";
+// import axios from "axios";
 // import { Pagination, Autoplay } from "swiper/modules";
 // import { Swiper } from "swiper/react";
 
 const Reviews = () => {
-   const [reviews, setReviews] = useState([]);
+  const {isPending, isError, error, data: reviews } = useQuery({
+     queryKey: ["reviews"],
+     queryFn: async () => {
+        const res = await fetch("http://localhost:5000/reviews");
+        return res.json();
+     },
+  });
 
-   useEffect(() => {
-      axios.get("http://localhost:5000/reviews").then((data) => {
-         console.log(data.data);
-         setReviews(data.data);
-      });
-   }, []);
+   // const [reviews, setReviews] = useState([]);
+
+   // useEffect(() => {
+   //    axios.get("http://localhost:5000/reviews").then((data) => {
+   //       console.log(data.data);
+   //       setReviews(data.data);
+   //    });
+   // }, []);
+
+   if(isPending){
+      return (
+         <div className="text-center">
+            <ClipLoader />
+         </div>
+      );
+   }
+
+   if(isError){
+      return <div className="text-center"><p>{error.message}</p></div>
+   }
    return (
       <div className="">
          <div className="text-center text-3xl my-8 font-bold font-classic">

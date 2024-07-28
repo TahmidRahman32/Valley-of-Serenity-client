@@ -15,6 +15,8 @@ import axios from "axios";
 
 const RoomDetails = () => {
    const roomDetails = useLoaderData();
+
+   
    const { user } = useContext(AuthContext);
    // console.log(roomDetails);
    const { room_images, room_size, price_per_night, room_description, title, special_offers } = roomDetails;

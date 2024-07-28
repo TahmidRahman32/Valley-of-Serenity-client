@@ -1,15 +1,31 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import RoomBanner from "./RoomBanner/RoomBanner";
 import RoomCard from "./RoomCard/RoomCard";
 import horizontal from "../../../assets/gallery/hr-geo-sukarno-1-removebg-preview.png";
 import { Helmet } from "react-helmet";
+import { ClipLoader } from "react-spinners";
+import { useQuery } from "@tanstack/react-query";
 // import { useEffect, useState } from "react";
 
 const Rooms = () => {
-   const roomsData = useLoaderData();
-   console.log(roomsData);
+   // const roomsData = useLoaderData();
+
+   // console.log(roomsData);
    //  const [high, setHigh] = useState([]);
    //  console.log(high);
+
+     const {
+        isPending,
+        isError,
+        error,
+        data: roomsData,
+     } = useQuery({
+        queryKey: ["roomsData"],
+        queryFn: async () => {
+           const res = await fetch("http://localhost:5000/rooms");
+           return res.json();
+        },
+     });
   const handleHighPriceBtn =()=>{
    
   }
@@ -21,6 +37,22 @@ const Rooms = () => {
    //          setHigh(data)
    //       });
    // }, []);
+
+    if (isPending) {
+       return (
+          <div className="text-center">
+             <ClipLoader  size={50}/>
+          </div>
+       );
+    }
+
+    if (isError) {
+       return (
+          <div className="text-center">
+             <p>{error.message}</p>
+          </div>
+       );
+    }
 
    return (
       <div>
