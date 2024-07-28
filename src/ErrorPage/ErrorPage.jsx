@@ -5,7 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 
 const ErrorPage = () => {
    const error = useRouteError();
-   console.log(error.message);
+  
    return (
       <div className="">
          <section className="h-screen text-gray-100">

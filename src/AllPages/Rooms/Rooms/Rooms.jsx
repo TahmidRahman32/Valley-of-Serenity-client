@@ -10,49 +10,47 @@ import { useQuery } from "@tanstack/react-query";
 const Rooms = () => {
    // const roomsData = useLoaderData();
 
-   // console.log(roomsData);
-   //  const [high, setHigh] = useState([]);
-   //  console.log(high);
-
-     const {
-        isPending,
-        isError,
-        error,
-        data: roomsData,
-     } = useQuery({
-        queryKey: ["roomsData"],
-        queryFn: async () => {
-           const res = await fetch("http://localhost:5000/rooms");
-           return res.json();
-        },
-     });
-  const handleHighPriceBtn =()=>{
    
-  }
+   //  const [high, setHigh] = useState([]);
+  
+
+   const {
+      isPending,
+      isError,
+      error,
+      data: roomsData,
+   } = useQuery({
+      queryKey: ["roomsData"],
+      queryFn: async () => {
+         const res = await fetch("https://assignment-11-server-delta-ruddy.vercel.app/rooms");
+         return res.json();
+      },
+   });
+   const handleHighPriceBtn = () => {};
    // useEffect(() => {
-   //    fetch("http://localhost:5000/roomSort")
+   //    fetch("https://assignment-11-server-delta-ruddy.vercel.app/roomSort")
    //       .then((res) => res.json())
    //       .then((data) => {
-   //          console.log(data);
+   //       
    //          setHigh(data)
    //       });
    // }, []);
 
-    if (isPending) {
-       return (
-          <div className="text-center">
-             <ClipLoader  size={50}/>
-          </div>
-       );
-    }
+   if (isPending) {
+      return (
+         <div className="text-center">
+            <ClipLoader size={50} />
+         </div>
+      );
+   }
 
-    if (isError) {
-       return (
-          <div className="text-center">
-             <p>{error.message}</p>
-          </div>
-       );
-    }
+   if (isError) {
+      return (
+         <div className="text-center">
+            <p>{error.message}</p>
+         </div>
+      );
+   }
 
    return (
       <div>

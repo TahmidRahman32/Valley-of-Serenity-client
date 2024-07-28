@@ -43,8 +43,8 @@ const NavBar = () => {
             });
             logOut()
                .then(() => {})
-               .then((error) => {
-                  console.log(error);
+               .then(() => {
+                  
                });
          }
       });

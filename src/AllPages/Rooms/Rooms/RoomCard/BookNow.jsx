@@ -9,7 +9,6 @@ import axios from "axios";
 const BookNow = ({ bookNow }) => {
    const { room_description, room_images, title, room_size } = bookNow;
 
-   console.log(bookNow);
    const { user } = useContext(AuthContext);
    const handleRoomConfirm = (e) => {
       e.preventDefault();
@@ -20,13 +19,13 @@ const BookNow = ({ bookNow }) => {
       const date = form.date.value;
       const guest = form.guest.value;
       const bookings = { name, email, date, guest, roomImg: room_images[0], room_size: room_size, title: title, description: room_description };
-      console.log(bookings);
+
       if (guest < 1) {
          toast.error("Please Guest List add");
          return;
       }
 
-      axios.post("http://localhost:5000/bookings").then((data) => {
+      axios.post("https://assignment-11-server-delta-ruddy.vercel.app/bookings", bookings).then((data) => {
          if (data.insertedId) {
             Swal.fire({
                position: "center",
@@ -37,8 +36,6 @@ const BookNow = ({ bookNow }) => {
             });
          }
       });
-
- 
    };
 
    return (

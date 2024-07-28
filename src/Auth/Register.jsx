@@ -19,7 +19,7 @@ const Register = () => {
       const name = form.name.value;
       const email = form.email.value;
       const password = form.password.value;
-      // console.log(email, password, name);
+    
 
       if (password.length < 6) {
          toast.error("Password must be 6 Character");
@@ -39,8 +39,8 @@ const Register = () => {
             navigate('/')
 
          })
-         .catch((error) => {
-            console.log(error);
+         .catch(() => {
+          
          });
    };
    return (

@@ -1,4 +1,4 @@
-import { FaMapMarkerAlt, FaStar, } from "react-icons/fa";
+import { FaMapMarkerAlt, FaStar } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
 
@@ -9,66 +9,63 @@ import { AuthContext } from "../../../../Router/AuthProvider";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
-
 import "react-day-picker/dist/style.css";
 
 import "react-day-picker/dist/style.css";
 import axios from "axios";
 
-
 const RoomCard = ({ room }) => {
    const { user } = useContext(AuthContext);
    const { hotel_name, room_description, room_images, _id, special_offers, title, price_per_night, room_size } = room;
-   console.log(room);
- const handleRoomConfirm = (e) => {
-    e.preventDefault();
+  
+   const handleRoomConfirm = (e) => {
+      e.preventDefault();
 
-    const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const date = form.date.value;
-    const guest = form.guest.value;
-    const bookings = { name, email, date, guest, roomImg: room_images[0], room_size: room_size, title: title, description: room_description };
-    console.log(bookings);
-    if (guest < 1) {
-       toast.error("Please Guest List add");
-       return;
-    }
-// axios
-axios.post("http://localhost:5000/bookings", bookings)
- .then(data => {
-          if (data.data.insertedId) {
-             Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Your Booking successfully",
-                showConfirmButton: false,
-                timer: 1500,
-             });
-          }
-       });
+      const form = e.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const date = form.date.value;
+      const guest = form.guest.value;
+      const bookings = { name, email, date, guest, roomImg: room_images[0], room_size: room_size, title: title, description: room_description };
+   
+      if (guest < 1) {
+         toast.error("Please Guest List add");
+         return;
+      }
+      // axios
+      axios.post("https://assignment-11-server-delta-ruddy.vercel.app/bookings", bookings).then((data) => {
+         if (data.data.insertedId) {
+            Swal.fire({
+               position: "top-end",
+               icon: "success",
+               title: "Your Booking successfully",
+               showConfirmButton: false,
+               timer: 1500,
+            });
+         }
+      });
 
-// fetch?
-   //  fetch("http://localhost:5000/bookings", {
-   //     method: "POST",
-   //     headers: {
-   //        "content-type": "application/json",
-   //     },
-   //     body: JSON.stringify(bookings),
-   //  })
-   //     .then((res) => res.json())
-   //     .then((data) => {
-   //        if (data.insertedId) {
-   //           Swal.fire({
-   //              position: "top-end",
-   //              icon: "success",
-   //              title: "Your Booking successfully",
-   //              showConfirmButton: false,
-   //              timer: 1500,
-   //           });
-   //        }
-   //     });
- };
+      // fetch?
+      //  fetch("https://assignment-11-server-delta-ruddy.vercel.app/bookings", {
+      //     method: "POST",
+      //     headers: {
+      //        "content-type": "application/json",
+      //     },
+      //     body: JSON.stringify(bookings),
+      //  })
+      //     .then((res) => res.json())
+      //     .then((data) => {
+      //        if (data.insertedId) {
+      //           Swal.fire({
+      //              position: "top-end",
+      //              icon: "success",
+      //              title: "Your Booking successfully",
+      //              showConfirmButton: false,
+      //              timer: 1500,
+      //           });
+      //        }
+      //     });
+   };
    return (
       <div>
          <dialog id="my_modal_3" className="modal">

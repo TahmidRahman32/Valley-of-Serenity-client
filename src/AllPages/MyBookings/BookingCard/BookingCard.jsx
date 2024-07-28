@@ -9,7 +9,7 @@ import axios from "axios";
 
 const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
    const { user } = useAuth();
-   // console.log(booking);
+  
    const { name, email, date, guest, roomImg, room_size, _id } = booking;
    const HandleUpdate = (e) => {
       e.preventDefault();
@@ -17,8 +17,8 @@ const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
       const formDate = form.formDate.value;
       const formGuest = form.formGuest.value;
 
-      axios.put(`http://localhost:5000/bookings/${update._id}`, { date: formDate, guest: formGuest }).then((data) => {
-         console.log(data);
+      axios.put(`https://assignment-11-server-delta-ruddy.vercel.app/bookings/${update._id}`, { date: formDate, guest: formGuest }).then((data) => {
+     
          if (data.data.modifiedCount > 0) {
             Swal.fire({
                position: "top-end",
@@ -29,9 +29,8 @@ const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
             });
          }
       });
-    
 
-      // fetch(`http://localhost:5000/bookings/${update._id}`, {
+      // fetch(`https://assignment-11-server-delta-ruddy.vercel.app/bookings/${update._id}`, {
       //    method: "PUT",
       //    headers: {
       //       "content-type": "application/json",
@@ -43,7 +42,7 @@ const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
       // })
       //    .then((res) => res.json())
       //    .then((data) => {
-      //       console.log(data);
+      //       
       //       if (data.modifiedCount > 0) {
       //          Swal.fire({
       //             position: "top-end",

@@ -7,12 +7,13 @@ import { useState } from "react";
 import axios from "axios";
 import useAuth from "../Hooks/useAuth";
 import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 
 const Login = () => {
    const [showPass, setShowPass] = useState(false);
    const { login, googleLogin, gitHubLogin } = useAuth();
    const location = useLocation();
-   
+
    const navigate = useNavigate();
 
    const loginHandleBtn = (e) => {
@@ -22,15 +23,18 @@ const Login = () => {
       const password = form.password.value;
       login(email, password)
          .then((result) => {
-            console.log(result.user);
+         
             const loggedUser = result.user;
-            console.log(loggedUser);
+            if(loggedUser){
+               toast('login successfully')
+            }
+            
             const user = { email };
-            axios.post("http://localhost:5000/jwt", user, { withCredentials: true }).then((res) => {
-               console.log(res.data);
+            axios.post("https://assignment-11-server-delta-ruddy.vercel.app/jwt", user, { withCredentials: true }).then((res) => {
+              
                if (res.data.success) {
                   navigate(location?.state ? location?.state : "/login");
-                  navigate('/')
+                  navigate("/");
                }
             });
          })
@@ -41,14 +45,13 @@ const Login = () => {
    const handleGoogleLogin = () => {
       googleLogin()
          .then((result) => {
-            console.log(result.user.email);
+            // console.log(result.user.email);
             const email = result.user.email;
             const user = { email };
-            axios.post("http://localhost:5000/jwt", user, { withCredentials: true }).then((res) => {
-               console.log(res.data);
+            axios.post("https://assignment-11-server-delta-ruddy.vercel.app/jwt", user, { withCredentials: true }).then((res) => {
+               // console.log(res.data);
                if (res.data.success) {
                   navigate(location?.state ? location?.state : "/login");
-                 
                }
             });
             // navigate(location?.state ? location?.state : "/login");
@@ -57,15 +60,18 @@ const Login = () => {
             console.log(error);
          });
    };
-   const handleGitHubBtn =()=>{
-     gitHubLogin()
-     .then(result =>{
-      console.log(result.user);
-     })
-     .catch(error =>{
-      console.log(error);
-     })
-   }
+   const handleGitHubBtn = () => {
+      gitHubLogin()
+         .then((result) => {
+              const loggedUser = result.user;
+            if (loggedUser) {
+               toast("login successfully");
+            }
+         })
+         .catch((error) => {
+            console.log(error);
+         });
+   };
 
    // const handleFacebookLogin = () => {
    //    facebookLogin()

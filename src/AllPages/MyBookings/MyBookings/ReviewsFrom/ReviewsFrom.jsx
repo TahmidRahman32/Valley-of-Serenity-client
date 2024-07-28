@@ -2,38 +2,37 @@ import Swal from "sweetalert2";
 import useAuth from "../../../../Hooks/useAuth";
 import { Helmet } from "react-helmet";
 
-
 const ReviewsFrom = () => {
-   const {user} = useAuth();
-     const HandleReviews = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const name = form.name.value;
-        const url = form.url.value;
-        const description = form.description.value;
-        const review = {name, url, description}
+   const { user } = useAuth();
+   const HandleReviews = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value;
+      const url = form.url.value;
+      const description = form.description.value;
+      const review = { name, url, description };
 
-        fetch(`http://localhost:5000/reviews`, {
-           method: "POST",
-           headers: {
-              "content-type": "application/json",
-           },
-           body: JSON.stringify(review),
-        })
-           .then((res) => res.json())
-           .then((data) => {
-              console.log(data);
-                if (data.insertedId) {
-                   Swal.fire({
-                      position: "top-end",
-                      icon: "success",
-                      title: "Your Booking Update successfully",
-                      showConfirmButton: false,
-                      timer: 1500,
-                   });
-                }
-           });
-     };
+      fetch(`https://assignment-11-server-delta-ruddy.vercel.app/reviews`, {
+         method: "POST",
+         headers: {
+            "content-type": "application/json",
+         },
+         body: JSON.stringify(review),
+      })
+         .then((res) => res.json())
+         .then((data) => {
+          
+            if (data.insertedId) {
+               Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Your Booking Update successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+               });
+            }
+         });
+   };
    return (
       <div className="max-w-6xl mx-auto">
          <Helmet>

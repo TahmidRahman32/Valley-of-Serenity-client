@@ -7,7 +7,7 @@ export default {
             errorImg: "url('./src/assets/error/Backgrounds_Smile108397_2.jpg')",
             footerImg: "url('./src/assets/logo.png')",
             // slider img
-            slider1: "url('./src/assets/slider/lobby5.jpg')",
+            slider1: "url('/src/assets/slider/lobby5.jpg')",
             slider2: "url('./src/assets/slider/lobby6.jpg')",
             slider3: "url('./src/assets/slider/lobby7.jpg')",
             slider4: "url('./src/assets/slider/lobby8.jpg')",

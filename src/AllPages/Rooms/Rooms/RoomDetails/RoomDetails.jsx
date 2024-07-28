@@ -16,11 +16,10 @@ import axios from "axios";
 const RoomDetails = () => {
    const roomDetails = useLoaderData();
 
-   
    const { user } = useContext(AuthContext);
-   // console.log(roomDetails);
+
    const { room_images, room_size, price_per_night, room_description, title, special_offers } = roomDetails;
-   // console.log(room_images[3]);
+  
 
    const handleRoomConfirm = (e) => {
       e.preventDefault();
@@ -31,7 +30,7 @@ const RoomDetails = () => {
       const date = form.date.value;
       const guest = form.guest.value;
       const bookings = { name, email, date, guest, roomImg: room_images[0], room_size: room_size, title: title, description: room_description };
-      console.log(bookings);
+   
       if (guest < 1) {
          Swal.fire({
             position: "top-end",
@@ -43,8 +42,8 @@ const RoomDetails = () => {
          return;
       }
 
-      axios.post("http://localhost:5000/bookings",bookings).then((data) => {
-         console.log(data);
+      axios.post("https://assignment-11-server-delta-ruddy.vercel.app/bookings", bookings).then((data) => {
+         
          if (data.data.insertedId) {
             Swal.fire({
                position: "top-end",
@@ -56,7 +55,7 @@ const RoomDetails = () => {
          }
       });
 
-      // fetch("http://localhost:5000/bookings", {
+      // fetch("https://assignment-11-server-delta-ruddy.vercel.app/bookings", {
       //    method: "POST",
       //    headers: {
       //       "content-type": "application/json",
@@ -160,7 +159,6 @@ const RoomDetails = () => {
                            {/* <form method="dialog"> */}
 
                            <button className="w-2/5 mx-auto  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-blue-800 border bg-blue-800 text-gray-200 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-500 before:ease-out hover:shadow-white hover:text-black hover:before:h-56 hover:before:w-56 rounded-lg">
-                            
                               <span className="relative z-10 font-classic flex items-center gap-2 text-xl">Confirm</span>
                            </button>
                         </div>

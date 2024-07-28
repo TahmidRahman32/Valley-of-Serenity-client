@@ -70,7 +70,7 @@ const router = createBrowserRouter([
          {
             path: "/Rooms",
             element: <Rooms />,
-            // loader: () => fetch("http://localhost:5000/rooms"),
+            // loader: () => fetch("https://assignment-11-server-delta-ruddy.vercel.app/rooms"),
          },
          {
             path: "/roomDetails/:id",
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
                   <RoomDetails />
                </PrivateRoute>
             ),
-            loader: ({ params }) => fetch(`http://localhost:5000/room/${params.id}`),
+            loader: ({ params }) => fetch(`https://assignment-11-server-delta-ruddy.vercel.app/room/${params.id}`),
          },
          {
             path: "/editPage",
@@ -93,7 +93,7 @@ const router = createBrowserRouter([
          {
             path: "/bookNow/:id",
             element: <BookNow />,
-            loader: ({ params }) => fetch(`http://localhost:5000/room/${params.id}`),
+            loader: ({ params }) => fetch(`https://assignment-11-server-delta-ruddy.vercel.app/room/${params.id}`),
          },
          {
             path: "/map",

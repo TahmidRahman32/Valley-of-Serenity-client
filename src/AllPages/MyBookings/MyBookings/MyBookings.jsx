@@ -10,16 +10,12 @@ import { Helmet } from "react-helmet";
 const MyBookings = () => {
    const [bookings, setBooking] = useState([]);
    const [update, setUpdate] = useState([]);
-   console.log(update);
-   
 
    const { user } = useAuth();
-   const url = `http://localhost:5000/bookings?email=${user?.email}`;
+   const url = `https://assignment-11-server-delta-ruddy.vercel.app/bookings?email=${user?.email}`;
 
    useEffect(() => {
-      
       axios.get(url, { withCredentials: true }).then((res) => {
-         // console.log(res.data);
          setBooking(res.data);
       });
    }, [url]);
@@ -34,7 +30,7 @@ const MyBookings = () => {
          confirmButtonText: "Yes, delete it!",
       }).then((result) => {
          if (result.isConfirmed) {
-            // axios.delete(`http://localhost:5000/bookings/${id}`).then((data) => {
+            // axios.delete(`https://assignment-11-server-delta-ruddy.vercel.app/bookings/${id}`).then((data) => {
             //    if (data.deletedCount > 0) {
             //       Swal.fire({
             //          title: "Deleted!",
@@ -45,7 +41,7 @@ const MyBookings = () => {
             //       setBooking(remaining);
             //    }
             // });
-            fetch(`http://localhost:5000/bookings/${id}`, {
+            fetch(`https://assignment-11-server-delta-ruddy.vercel.app/bookings/${id}`, {
                method: "DELETE",
             })
                .then((res) => res.json())
@@ -64,14 +60,10 @@ const MyBookings = () => {
       });
    };
    const handleUpdateBtn = (id) => {
-     axios.get(`http://localhost:5000/bookings/${id}`).then((data) => {
-        console.log(data.data);
-        setUpdate(data.data);
-     });
-     
+      axios.get(`https://assignment-11-server-delta-ruddy.vercel.app/bookings/${id}`).then((data) => {
+         setUpdate(data.data);
+      });
    };
-
-  
 
    return (
       <div className=" mx-5 h-screen">
@@ -86,13 +78,7 @@ const MyBookings = () => {
                </div>
                <div className="grid grid-cols-1  gap-10 md:grid-cols-2 lg:grid-cols-3">
                   {bookings.map((booking) => (
-                     <BookingCard 
-                     key={booking._id}
-                      booking={booking} 
-                      handleDeleted={handleDeleted} 
-                      handleUpdateBtn={handleUpdateBtn} 
-                      update={update}
-                      ></BookingCard>
+                     <BookingCard key={booking._id} booking={booking} handleDeleted={handleDeleted} handleUpdateBtn={handleUpdateBtn} update={update}></BookingCard>
                   ))}
                </div>
             </section>
