@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../../Router/AuthProvider";
 import { Helmet } from "react-helmet";
+import axios from "axios";
 
 const RoomDetails = () => {
    const roomDetails = useLoaderData();
@@ -40,25 +41,38 @@ const RoomDetails = () => {
          return;
       }
 
-      fetch("http://localhost:5000/bookings", {
-         method: "POST",
-         headers: {
-            "content-type": "application/json",
-         },
-         body: JSON.stringify(bookings),
-      })
-         .then((res) => res.json())
-         .then((data) => {
-            if (data.insertedId) {
-               Swal.fire({
-                  position: "top-end",
-                  icon: "success",
-                  title: "Your Booking successfully",
-                  showConfirmButton: false,
-                  timer: 1500,
-               });
-            }
-         });
+      axios.post("http://localhost:5000/bookings",bookings).then((data) => {
+         console.log(data);
+         if (data.data.insertedId) {
+            Swal.fire({
+               position: "top-end",
+               icon: "success",
+               title: "Your Booking successfully",
+               showConfirmButton: false,
+               timer: 1500,
+            });
+         }
+      });
+
+      // fetch("http://localhost:5000/bookings", {
+      //    method: "POST",
+      //    headers: {
+      //       "content-type": "application/json",
+      //    },
+      //    body: JSON.stringify(bookings),
+      // })
+      //    .then((res) => res.json())
+      //    .then((data) => {
+      //       if (data.insertedId) {
+      //          Swal.fire({
+      //             position: "top-end",
+      //             icon: "success",
+      //             title: "Your Booking successfully",
+      //             showConfirmButton: false,
+      //             timer: 1500,
+      //          });
+      //       }
+      //    });
    };
    return (
       <div>

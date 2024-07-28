@@ -4,6 +4,7 @@ import { AuthContext } from "../../../../Router/AuthProvider";
 // import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const BookNow = ({ bookNow }) => {
    const { room_description, room_images, title, room_size } = bookNow;
@@ -25,25 +26,19 @@ const BookNow = ({ bookNow }) => {
          return;
       }
 
-      fetch("http://localhost:5000/bookings", {
-         method: "POST",
-         headers: {
-            "content-type": "application/json",
-         },
-         body: JSON.stringify(bookings),
-      })
-         .then((res) => res.json())
-         .then((data) => {
-            if (data.insertedId) {
-               Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "Your Booking successfully",
-                  showConfirmButton: false,
-                  timer: 1500,
-               });
-            }
-         });
+      axios.post("http://localhost:5000/bookings").then((data) => {
+         if (data.insertedId) {
+            Swal.fire({
+               position: "center",
+               icon: "success",
+               title: "Your Booking successfully",
+               showConfirmButton: false,
+               timer: 1500,
+            });
+         }
+      });
+
+ 
    };
 
    return (

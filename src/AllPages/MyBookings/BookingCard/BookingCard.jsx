@@ -5,6 +5,7 @@ import { MdDeleteForever, MdRateReview } from "react-icons/md";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
    const { user } = useAuth();
@@ -15,31 +16,44 @@ const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
       const form = e.target;
       const formDate = form.formDate.value;
       const formGuest = form.formGuest.value;
+
+      axios.put(`http://localhost:5000/bookings/${update._id}`, { date: formDate, guest: formGuest }).then((data) => {
+         console.log(data);
+         if (data.data.modifiedCount > 0) {
+            Swal.fire({
+               position: "top-end",
+               icon: "success",
+               title: "Your Booking Update successfully",
+               showConfirmButton: false,
+               timer: 1500,
+            });
+         }
+      });
     
 
-      fetch(`http://localhost:5000/bookings/${update._id}`, {
-         method: "PUT",
-         headers: {
-            "content-type": "application/json",
-         },
-         body: JSON.stringify({
-            date: formDate,
-            guest: formGuest,
-         }),
-      })
-         .then((res) => res.json())
-         .then((data) => {
-            console.log(data);
-            if (data.modifiedCount > 0) {
-               Swal.fire({
-                  position: "top-end",
-                  icon: "success",
-                  title: "Your Booking Update successfully",
-                  showConfirmButton: false,
-                  timer: 1500,
-               });
-            }
-         });
+      // fetch(`http://localhost:5000/bookings/${update._id}`, {
+      //    method: "PUT",
+      //    headers: {
+      //       "content-type": "application/json",
+      //    },
+      //    body: JSON.stringify({
+      //       date: formDate,
+      //       guest: formGuest,
+      //    }),
+      // })
+      //    .then((res) => res.json())
+      //    .then((data) => {
+      //       console.log(data);
+      //       if (data.modifiedCount > 0) {
+      //          Swal.fire({
+      //             position: "top-end",
+      //             icon: "success",
+      //             title: "Your Booking Update successfully",
+      //             showConfirmButton: false,
+      //             timer: 1500,
+      //          });
+      //       }
+      //    });
    };
 
    return (
@@ -136,12 +150,12 @@ const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
                   </div>
                </div>
                <div className=" grid grid-cols-2 gap-x-6 ">
-                  <div onClick={() => handleDeleted(_id)} className="flex items-center text-sm font-style  w-2/3 hover:bg-gray-200 rounded ">
+                  <div onClick={() => handleDeleted(_id)} className="flex items-center text-sm font-style  w-2/3 hover:bg-blue-600 hover:text-white hover:py-1 hover:px-3 rounded ">
                      <button className="font-bold flex items-center gap-1 text-center">
                         Delete <MdDeleteForever />
                      </button>
                   </div>
-                  <div onClick={() => handleUpdateBtn(_id)} className="flex items-center text-sm font-style  w-2/3 hover:bg-gray-200 rounded ">
+                  <div onClick={() => handleUpdateBtn(_id)} className="flex items-center text-sm font-style  w-2/3 rounded   hover:bg-blue-600 hover:text-white hover:py-1 hover:px-3">
                      <button className="font-bold flex items-center gap-1 text-center" onClick={() => document.getElementById("my_modal_4").showModal()}>
                         Update <GrUpdate size={10} />
                      </button>

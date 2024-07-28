@@ -33,6 +33,17 @@ const MyBookings = () => {
          confirmButtonText: "Yes, delete it!",
       }).then((result) => {
          if (result.isConfirmed) {
+            // axios.delete(`http://localhost:5000/bookings/${id}`).then((data) => {
+            //    if (data.deletedCount > 0) {
+            //       Swal.fire({
+            //          title: "Deleted!",
+            //          text: "Your file has been deleted.",
+            //          icon: "success",
+            //       });
+            //       const remaining = bookings.filter((book) => book._id !== id);
+            //       setBooking(remaining);
+            //    }
+            // });
             fetch(`http://localhost:5000/bookings/${id}`, {
                method: "DELETE",
             })
@@ -52,13 +63,11 @@ const MyBookings = () => {
       });
    };
    const handleUpdateBtn = (id) => {
-      console.log(id);
-      fetch(`http://localhost:5000/bookings/${id}`)
-         .then((res) => res.json())
-         .then((data) => {
-            console.log(data);
-            setUpdate(data);
-         });
+     axios.get(`http://localhost:5000/bookings/${id}`).then((data) => {
+        console.log(data.data);
+        setUpdate(data.data);
+     });
+     
    };
 
   

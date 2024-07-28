@@ -13,6 +13,7 @@ import Swal from "sweetalert2";
 import "react-day-picker/dist/style.css";
 
 import "react-day-picker/dist/style.css";
+import axios from "axios";
 
 
 const RoomCard = ({ room }) => {
@@ -33,17 +34,10 @@ const RoomCard = ({ room }) => {
        toast.error("Please Guest List add");
        return;
     }
-
-    fetch("http://localhost:5000/bookings", {
-       method: "POST",
-       headers: {
-          "content-type": "application/json",
-       },
-       body: JSON.stringify(bookings),
-    })
-       .then((res) => res.json())
-       .then((data) => {
-          if (data.insertedId) {
+// axios
+axios.post("http://localhost:5000/bookings", bookings)
+ .then(data => {
+          if (data.data.insertedId) {
              Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -53,6 +47,27 @@ const RoomCard = ({ room }) => {
              });
           }
        });
+
+// fetch?
+   //  fetch("http://localhost:5000/bookings", {
+   //     method: "POST",
+   //     headers: {
+   //        "content-type": "application/json",
+   //     },
+   //     body: JSON.stringify(bookings),
+   //  })
+   //     .then((res) => res.json())
+   //     .then((data) => {
+   //        if (data.insertedId) {
+   //           Swal.fire({
+   //              position: "top-end",
+   //              icon: "success",
+   //              title: "Your Booking successfully",
+   //              showConfirmButton: false,
+   //              timer: 1500,
+   //           });
+   //        }
+   //     });
  };
    return (
       <div>
