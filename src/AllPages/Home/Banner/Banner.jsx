@@ -29,7 +29,7 @@ const Banner = () => {
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
          >
-            <SwiperSlide className="bg-slider1 min-h-[calc(100vh-112px)] bg-center bg-cover rounded-md">
+            <SwiperSlide className="bg-slider1 md:min-h-[calc(100vh-112px)] bg-center bg-cover rounded-md">
                <BannerText></BannerText>
             </SwiperSlide>
             <SwiperSlide className="bg-slider2 min-h-[calc(100vh-112px)] bg-center bg-cover">

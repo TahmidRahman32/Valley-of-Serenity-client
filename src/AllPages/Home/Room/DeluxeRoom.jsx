@@ -23,7 +23,7 @@ const DeluxeRoom = () => {
    return (
       <div>
          <div>
-            <div className="flex gap-4">
+            <div className="md:flex  gap-4">
                <div className="border w-1/2 ">
                   <Swiper
                      // install Swiper modules
@@ -33,49 +33,49 @@ const DeluxeRoom = () => {
                      autoplay
                   >
                      <SwiperSlide className="relative ">
-                        <img className="h-[830px] " src={deluxe1} alt="" />
+                        <img className="md:h-[830px] " src={deluxe1} alt="" />
                         <div className="absolute top-4  bg-[#0A238930] text-white py-2 px-10 text-center ">
                            <h3 className="text-3xl font-bold font-classic">10+</h3>
                            <p className="font-classic  text-xl">ROOM</p>
                         </div>
                      </SwiperSlide>
                      <SwiperSlide>
-                        <img className="h-[830px]" src={deluxe2} alt="" />
+                        <img className="md:h-[830px]" src={deluxe2} alt="" />
                         <div className="absolute top-4  bg-[#0A238930] text-white py-2 px-10 text-center ">
                            <h3 className="text-3xl font-bold font-classic">10+</h3>
                            <p className="font-classic  text-xl">ROOM</p>
                         </div>
                      </SwiperSlide>
                      <SwiperSlide>
-                        <img className="h-[830px]" src={deluxe3} alt="" />
+                        <img className="md:h-[830px]" src={deluxe3} alt="" />
                         <div className="absolute top-4  bg-[#0A238930] text-white py-2 px-10 text-center ">
                            <h3 className="text-3xl font-bold font-classic">10+</h3>
                            <p className="font-classic  text-xl">ROOM</p>
                         </div>
                      </SwiperSlide>
                      <SwiperSlide>
-                        <img className="h-[830px]" src={deluxe4} alt="" />
+                        <img className="md:h-[830px]" src={deluxe4} alt="" />
                         <div className="absolute top-4  bg-[#0A238930] text-white py-2 px-10 text-center ">
                            <h3 className="text-3xl font-bold font-classic">10+</h3>
                            <p className="font-classic  text-xl">ROOM</p>
                         </div>
                      </SwiperSlide>
                      <SwiperSlide>
-                        <img className="h-[830px]" src={deluxe5} alt="" />
+                        <img className="md:h-[830px]" src={deluxe5} alt="" />
                         <div className="absolute top-4  bg-[#0A238930] text-white py-2 px-10 text-center ">
                            <h3 className="text-3xl font-bold font-classic">10+</h3>
                            <p className="font-classic  text-xl">ROOM</p>
                         </div>
                      </SwiperSlide>
                      <SwiperSlide>
-                        <img className="h-[830px]" src={deluxe6} alt="" />
+                        <img className="md:h-[830px]" src={deluxe6} alt="" />
                         <div className="absolute top-4  bg-[#0A238930] text-white py-2 px-10 text-center ">
                            <h3 className="text-3xl font-bold font-classic">10+</h3>
                            <p className="font-classic  text-xl">ROOM</p>
                         </div>
                      </SwiperSlide>
                      <SwiperSlide>
-                        <img className="h-[830px]" src={deluxe7} alt="" />
+                        <img className="md:h-[830px] " src={deluxe7} alt="" />
                         <div className="absolute top-4  bg-[#0A238930] text-white py-2 px-10 text-center ">
                            <h3 className="text-3xl font-bold font-classic">20+</h3>
                            <p className="font-classic  text-xl uppercase">bathroom</p>
@@ -90,7 +90,7 @@ const DeluxeRoom = () => {
                      bathroom with shower, complimentary toiletries, and a work desk.
                   </p>
                   <p className="font-classic">Stay connected with complimentary Wi-Fi and unwind with selection of cable channels on the flat-screen TV. Wake up to a complimentary continental breakfast to start your day right. </p>
-                  <div className="flex gap-8">
+                  <div className="md:flex gap-8">
                      <div className="border-2  py-12 px-6 text-center hover:bg-[#205d9f1A]">
                         <IoBedOutline size={40} className="mx-auto " />
                         <p className="text-xl font-style">Queen Bed Qualities</p>

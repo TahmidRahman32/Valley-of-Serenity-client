@@ -8,9 +8,9 @@ import { IoCallSharp, IoPersonAdd } from "react-icons/io5";
 
 const HelpSection = () => {
    return (
-      <div className="my-10">
+      <div className="my-10 md:mx-0 mx-3">
          
-         <div className="flex gap-16 justify-center  md:my-20">
+         <div className="md:flex md:gap-16 gap-5 justify-center  md:my-20">
             <div className="space-y-7 mt-8 relative animate__animated animate__slideInLeft animate__slow">
                <h1 className="text-6xl font-bold font-style">
                   We can help you feel <br /> more comfortable
@@ -20,7 +20,7 @@ const HelpSection = () => {
                   tristique aliquam mauris pellentesque. Donec orci ut facilisi dictum aliquam sit nisi.
                   <br /> Tortor condimentum porta fames id in viverra massa et sed.
                </p>
-               <div className="grid grid-cols-2 gap-16">
+               <div className="md:grid grid-cols-2 md:gap-16">
                   <p className="flex items-center gap-3 text-xl font-style">
                      {" "}
                      <PiHashStraightBold size={40} /> Classy Amenities
@@ -43,10 +43,10 @@ const HelpSection = () => {
                   </span>
                </button>
             </div>
-            <div className="relative animate__animated animate__slideInRight animate__slow">
+            <div className="relative md:mb-0 mb-14 animate__animated animate__slideInRight animate__slow">
                <img className="w-[450px]" src={helpImg2} alt="" />
                <img className="w-96 absolute -bottom-12 -left-16 border-8 border-white rounded-xl" src={helpImg1} alt="" />
-               <div className="absolute top-16 -right-16 bg-black text-white py-8 px-10 text-center">
+               <div className="absolute md:block hidden top-16 -right-16 bg-black text-white py-8 px-10 text-center">
                   <h3 className="text-3xl font-bold font-style">10+</h3>
                   <p className="font-style text-xl">YEARS</p>
                </div>

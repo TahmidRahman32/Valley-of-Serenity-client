@@ -14,7 +14,7 @@ const Gallery = () => {
                Let our gallery inspire your next visit, showcasing the essence of relaxation and adventure that awaits you. Take a <br /> visual journey and see why Luxeliving is the perfect choice for your next getaway.
             </p>
          </div>
-         <div className="grid grid-cols-3 gap-8  p-5">
+         <div className="md:grid grid-cols-3 gap-8  p-5">
             <div className="space-y-8">
                <div className=" mx-auto relative overflow-hidden container">
                   <img className="transition-transform duration-[800ms] ease-in-out" src={gallery2} alt="" />

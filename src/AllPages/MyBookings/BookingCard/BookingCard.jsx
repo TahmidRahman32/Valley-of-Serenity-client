@@ -9,7 +9,7 @@ import axios from "axios";
 
 const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
    const { user } = useAuth();
-  
+
    const { name, email, date, guest, roomImg, room_size, _id } = booking;
    const HandleUpdate = (e) => {
       e.preventDefault();
@@ -18,7 +18,6 @@ const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
       const formGuest = form.formGuest.value;
 
       axios.put(`https://assignment-11-server-delta-ruddy.vercel.app/bookings/${update._id}`, { date: formDate, guest: formGuest }).then((data) => {
-     
          if (data.data.modifiedCount > 0) {
             Swal.fire({
                position: "top-end",
@@ -29,30 +28,6 @@ const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
             });
          }
       });
-
-      // fetch(`https://assignment-11-server-delta-ruddy.vercel.app/bookings/${update._id}`, {
-      //    method: "PUT",
-      //    headers: {
-      //       "content-type": "application/json",
-      //    },
-      //    body: JSON.stringify({
-      //       date: formDate,
-      //       guest: formGuest,
-      //    }),
-      // })
-      //    .then((res) => res.json())
-      //    .then((data) => {
-      //       
-      //       if (data.modifiedCount > 0) {
-      //          Swal.fire({
-      //             position: "top-end",
-      //             icon: "success",
-      //             title: "Your Booking Update successfully",
-      //             showConfirmButton: false,
-      //             timer: 1500,
-      //          });
-      //       }
-      //    });
    };
 
    return (
@@ -149,12 +124,12 @@ const BookingCard = ({ booking, handleDeleted, handleUpdateBtn, update }) => {
                   </div>
                </div>
                <div className=" grid grid-cols-2 gap-x-6 ">
-                  <div onClick={() => handleDeleted(_id)} className="flex items-center text-sm font-style  w-2/3 hover:bg-blue-600 hover:text-white hover:py-1 hover:px-3 rounded ">
+                  <div onClick={() => handleDeleted(_id)} className="flex items-center text-sm font-style  w-2/3 hover:bg-blue-600 hover:text-white hover:py-1  rounded ">
                      <button className="font-bold flex items-center gap-1 text-center">
                         Delete <MdDeleteForever />
                      </button>
                   </div>
-                  <div onClick={() => handleUpdateBtn(_id)} className="flex items-center text-sm font-style  w-2/3 rounded   hover:bg-blue-600 hover:text-white hover:py-1 hover:px-3">
+                  <div onClick={() => handleUpdateBtn(_id)} className="flex items-center text-sm font-style  w-2/3 rounded   hover:bg-blue-600 hover:text-white  ">
                      <button className="font-bold flex items-center gap-1 text-center" onClick={() => document.getElementById("my_modal_4").showModal()}>
                         Update <GrUpdate size={10} />
                      </button>

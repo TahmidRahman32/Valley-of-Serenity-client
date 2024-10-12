@@ -17,6 +17,8 @@ const MyBookings = () => {
    useEffect(() => {
       axios.get(url, { withCredentials: true }).then((res) => {
          setBooking(res.data);
+         console.log(res.data);
+         
       });
    }, [url]);
    const handleDeleted = (id) => {
@@ -30,17 +32,17 @@ const MyBookings = () => {
          confirmButtonText: "Yes, delete it!",
       }).then((result) => {
          if (result.isConfirmed) {
-            // axios.delete(`https://assignment-11-server-delta-ruddy.vercel.app/bookings/${id}`).then((data) => {
-            //    if (data.deletedCount > 0) {
-            //       Swal.fire({
-            //          title: "Deleted!",
-            //          text: "Your file has been deleted.",
-            //          icon: "success",
-            //       });
-            //       const remaining = bookings.filter((book) => book._id !== id);
-            //       setBooking(remaining);
-            //    }
-            // });
+            axios.delete(`https://assignment-11-server-delta-ruddy.vercel.app/bookings/${id}`).then((data) => {
+               if (data.deletedCount > 0) {
+                  Swal.fire({
+                     title: "Deleted!",
+                     text: "Your file has been deleted.",
+                     icon: "success",
+                  });
+                  const remaining = bookings.filter((book) => book._id !== id);
+                  setBooking(remaining);
+               }
+            });
             fetch(`https://assignment-11-server-delta-ruddy.vercel.app/bookings/${id}`, {
                method: "DELETE",
             })
@@ -66,7 +68,7 @@ const MyBookings = () => {
    };
 
    return (
-      <div className=" mx-5 h-screen">
+      <div className=" mx-5 ">
          <Helmet>
             <title>Valley of Serenity MyBooking</title>
          </Helmet>

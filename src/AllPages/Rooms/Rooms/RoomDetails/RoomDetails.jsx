@@ -15,11 +15,9 @@ import axios from "axios";
 
 const RoomDetails = () => {
    const roomDetails = useLoaderData();
-
    const { user } = useContext(AuthContext);
 
    const { room_images, room_size, price_per_night, room_description, title, special_offers } = roomDetails;
-  
 
    const handleRoomConfirm = (e) => {
       e.preventDefault();
@@ -30,7 +28,7 @@ const RoomDetails = () => {
       const date = form.date.value;
       const guest = form.guest.value;
       const bookings = { name, email, date, guest, roomImg: room_images[0], room_size: room_size, title: title, description: room_description };
-   
+
       if (guest < 1) {
          Swal.fire({
             position: "top-end",
@@ -43,7 +41,6 @@ const RoomDetails = () => {
       }
 
       axios.post("https://assignment-11-server-delta-ruddy.vercel.app/bookings", bookings).then((data) => {
-         
          if (data.data.insertedId) {
             Swal.fire({
                position: "top-end",
@@ -53,14 +50,11 @@ const RoomDetails = () => {
                timer: 1500,
             });
          }
+         console.log(data.data);
+         
       });
-
-  
    };
-   const closeBtn = () =>{
-      console.log('add');
-      
-   }
+
    return (
       <div>
          <Helmet>
@@ -71,7 +65,7 @@ const RoomDetails = () => {
 
          <dialog id="my_modal_3" className="modal">
             <div className="modal-box">
-               <form  method="dialog">
+               <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 bg-red-500 text-white">✕</button>
                </form>
@@ -144,10 +138,7 @@ const RoomDetails = () => {
                         <div className="text-center">
                            {/* <form method="dialog"> */}
 
-                           <button
-                              onClick={closeBtn}
-                              className="w-2/5 mx-auto  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-blue-800 border bg-blue-800 text-gray-200 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-500 before:ease-out hover:shadow-white hover:text-black hover:before:h-56 hover:before:w-56 rounded-lg"
-                           >
+                           <button className="w-2/5 btn mx-auto  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-blue-800 border bg-blue-800 text-gray-200 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-500 before:ease-out hover:shadow-white hover:text-black hover:before:h-56 hover:before:w-56 rounded-lg">
                               <span className="relative z-10 font-classic flex items-center gap-2 text-xl">Confirm</span>
                            </button>
                         </div>

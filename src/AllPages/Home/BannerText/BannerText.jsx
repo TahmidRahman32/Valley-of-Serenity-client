@@ -6,7 +6,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 const BannerText = () => {
    return (
-      <div className="flex justify-center items-center min-h-[calc(100vh-112px)] rounded-md bg bg-gradient-to-r from-[#01091380] to-[#20215130] ">
+      <div className="flex justify-center items-center md:min-h-[calc(100vh-112px)] rounded-md bg bg-gradient-to-r from-[#01091380] to-[#20215130] ">
          <div className="text-white text-center animate__animated animate__zoomInDown animate__slow">
             <h5 className="text-2xl font-sc animate__animated animate__zoomInDown animate__fast">Welcome to Luxeliving</h5>
             <h1 className="text-6xl font-style font-bold">

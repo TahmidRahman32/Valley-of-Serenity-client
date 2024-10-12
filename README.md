@@ -1,11 +1,33 @@
-# React + Vite
+# Valley of Serenity
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+-  Live Link [https://assignment-11-26be9.web.app]
 
-Currently, two official plugins are available:
+# Project Dependencies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-
-- Live Link [https://assignment-11-26be9.web.app]
+-  tailwindcss
+-  daisyui
+-  react
+-  @tanstack/react-query
+-  animate.css
+-  axios
+-  firebase
+-  leaflet
+-  localforage
+-  match-sorter
+-  react
+-  react-datepicker
+-  react-day-picker
+-  react-dom
+-  react-helmet
+-  react-helmet-async
+-  react-hot-toast
+-  react-icons
+-  react-leaflet
+-  react-moving-text
+-  react-router-dom
+-  react-spinners
+-  react-type-animation
+-  react-typed
+-  sort-by
+-  sweetalert2
+-  swiper

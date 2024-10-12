@@ -17,18 +17,20 @@ const About = () => {
                </div>
             </div>
          </div>
-         <div className="grid grid-cols-2   gap-16 my-10 max-w-7xl mx-auto ">
-            <div className="space-y-6 bg-fixed">
-               <h2 className="text-center text-5xl font-bold font-classic">Find Our Exclusive Room Packages</h2>
-               <div className="space-y-6 ">
-                  <p className="text-gray-500 font-style">
-                     Explore our selection of meticulously crafted packages designed to Strengthen your stay. Each package offers a unique blend of luxury, convenience, and also unforgettable experiences. Whether you’re dreaming of a romantic escape,
-                     a family adventure, or a weekend of relaxation, our packages cater to diverse.
-                  </p>
-                  <p className="text-gray-500 font-style">
-                     {" "}
-                     sit amet consectetur. Dui lacus nulla tortor vel leo tristique aliquam mauris pellentesque. Donec orci ut facilisi dictum aliquam sit nisi. Tor condimentum porta fames id in viverra massa et sed.
-                  </p>
+         <div className="md:grid grid-cols-2   gap-16 my-10 max-w-7xl mx-auto ">
+            <div className="space-y-6">
+               <div className="sticky top-7">
+                  <h2 className="text-center text-5xl font-bold font-classic">Find Our Exclusive Room Packages</h2>
+                  <div className="space-y-6 ">
+                     <p className="text-gray-500 font-style">
+                        Explore our selection of meticulously crafted packages designed to Strengthen your stay. Each package offers a unique blend of luxury, convenience, and also unforgettable experiences. Whether you’re dreaming of a romantic
+                        escape, a family adventure, or a weekend of relaxation, our packages cater to diverse.
+                     </p>
+                     <p className="text-gray-500 font-style">
+                        {" "}
+                        sit amet consectetur. Dui lacus nulla tortor vel leo tristique aliquam mauris pellentesque. Donec orci ut facilisi dictum aliquam sit nisi. Tor condimentum porta fames id in viverra massa et sed.
+                     </p>
+                  </div>
                </div>
             </div>
             <div className="space-y-10 ">
