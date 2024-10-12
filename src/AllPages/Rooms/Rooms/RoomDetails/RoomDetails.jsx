@@ -55,26 +55,12 @@ const RoomDetails = () => {
          }
       });
 
-      // fetch("https://assignment-11-server-delta-ruddy.vercel.app/bookings", {
-      //    method: "POST",
-      //    headers: {
-      //       "content-type": "application/json",
-      //    },
-      //    body: JSON.stringify(bookings),
-      // })
-      //    .then((res) => res.json())
-      //    .then((data) => {
-      //       if (data.insertedId) {
-      //          Swal.fire({
-      //             position: "top-end",
-      //             icon: "success",
-      //             title: "Your Booking successfully",
-      //             showConfirmButton: false,
-      //             timer: 1500,
-      //          });
-      //       }
-      //    });
+  
    };
+   const closeBtn = () =>{
+      console.log('add');
+      
+   }
    return (
       <div>
          <Helmet>
@@ -85,7 +71,7 @@ const RoomDetails = () => {
 
          <dialog id="my_modal_3" className="modal">
             <div className="modal-box">
-               <form method="dialog">
+               <form  method="dialog">
                   {/* if there is a button in form, it will close the modal */}
                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 bg-red-500 text-white">✕</button>
                </form>
@@ -95,21 +81,21 @@ const RoomDetails = () => {
                   <div className="flex justify-between">
                      <div className="mt-5">
                         <p className="text-xs font-semibold tracking-wider text-blue-600 uppercase">#Valley of Serenity</p>
-                        <h3 className="text-2xl uppercase font-classic">Room Details:</h3>
+                        <h3 className="text-2xl  font-classic">Room Details:</h3>
                         <p className="font-style text-2xl">
                            <span className="font-bold"></span>
                         </p>
                         <p className="font-style text-2xl flex items-center">
                            <span className="font-bold flex gap-1 items-center">
                               <SiZelle color="#E6C704" /> Price:
-                           </span>{" "}
-                           {room_size}
+                           </span>
+                           ${price_per_night}
                         </p>
                         <p className="font-style text-2xl flex items-center">
                            <span className="font-bold flex gap-1 items-center">
                               <IoMdPricetags color="#E6C704" /> Room Size:
                            </span>{" "}
-                           {price_per_night}
+                           {room_size}
                         </p>
                         <p className="font-style text-2xl flex items-center">
                            <span className="font-bold flex gap-1 items-center">
@@ -158,7 +144,10 @@ const RoomDetails = () => {
                         <div className="text-center">
                            {/* <form method="dialog"> */}
 
-                           <button className="w-2/5 mx-auto  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-blue-800 border bg-blue-800 text-gray-200 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-500 before:ease-out hover:shadow-white hover:text-black hover:before:h-56 hover:before:w-56 rounded-lg">
+                           <button
+                              onClick={closeBtn}
+                              className="w-2/5 mx-auto  font-semibold rounded-r-lg sm:w-1/3 relative flex h-[50px] items-center justify-center overflow-hidden border-blue-800 border bg-blue-800 text-gray-200 shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-500 before:ease-out hover:shadow-white hover:text-black hover:before:h-56 hover:before:w-56 rounded-lg"
+                           >
                               <span className="relative z-10 font-classic flex items-center gap-2 text-xl">Confirm</span>
                            </button>
                         </div>
@@ -214,12 +203,12 @@ const RoomDetails = () => {
                         Spectacular Views to Refresh Your Senses
                      </p>
                      <div className="my-5">
-                        <h3 className="text-2xl uppercase font-classic">Room Details:</h3>
+                        <h3 className="text-2xl  font-classic">Room Details:</h3>
                         <p className="font-style text-2xl">
                            <span className="font-bold">Room Size:</span> {room_size}
                         </p>
                         <p className="font-style text-2xl">
-                           <span className="font-bold">Price:</span> {price_per_night}
+                           <span className="font-bold">Price:</span> ${price_per_night}
                         </p>
                         <p className="font-style text-2xl">
                            <span className="font-bold ">Guest:</span> 2/<span className="text-xs">person</span>

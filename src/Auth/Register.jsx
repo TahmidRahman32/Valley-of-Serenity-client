@@ -1,25 +1,27 @@
 import { Link, useNavigate } from "react-router-dom";
 import LogInLogo from "../assets/login/img-12-removebg-preview.png";
-import {useState } from "react";
+import { useState } from "react";
 import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
-
+const img_hosting_key = import.meta.env.VITE_IMG_HOSTING_APIKEY;
+const img_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 import useAuth from "../Hooks/useAuth";
 import { Helmet } from "react-helmet";
+import { CgSpinner } from "react-icons/cg";
 
 const Register = () => {
    const [showPass, setShowPass] = useState(false);
-   const { createUser } = useAuth()
+   const { createUser, loading, setLoading } = useAuth();
    const navigate = useNavigate();
    const handleSignUpBtn = (e) => {
       e.preventDefault();
+      setLoading(true);
       const form = e.target;
       const name = form.name.value;
       const email = form.email.value;
       const password = form.password.value;
-    
 
       if (password.length < 6) {
          toast.error("Password must be 6 Character");
@@ -31,17 +33,13 @@ const Register = () => {
          toast.error("Please Add Minimum one lowercase");
          return;
       }
-      createUser(email, password)
-         .then((result) => {
-            updateProfile(result.user, {
-               displayName: name,
-            });
-            navigate('/')
-
-         })
-         .catch(() => {
-          
+      createUser(email, password).then((result) => {
+         updateProfile(result.user, {
+            displayName: name,
          });
+         setLoading(false);
+         navigate("/");
+      });
    };
    return (
       <div>
@@ -97,6 +95,7 @@ const Register = () => {
                                     />
                                  </div>
                               </div>
+
                               <div className="w-full md:w-full px-3 mb-6">
                                  <div className="form-control relative">
                                     <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
@@ -116,8 +115,11 @@ const Register = () => {
                               </div>
 
                               <div className="text-center md:w-full px-3 mb-6">
-                                 <button className="relative flex w-1/2 h-[50px] mx-auto items-center justify-center overflow-hidden bg-black text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-500 before:duration-500 before:ease-out hover:shadow-blue-600 hover:before:h-56 hover:before:w-56 rounded-lg">
-                                    <span className="relative z-10 font-style text-xl">Register</span>
+                                 <button
+                                    disabled={loading}
+                                    className="relative flex w-1/2 h-[50px] mx-auto items-center justify-center overflow-hidden bg-black text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-500 before:duration-500 before:ease-out hover:shadow-blue-600 hover:before:h-56 hover:before:w-56 rounded-lg"
+                                 >
+                                    {loading ? <CgSpinner size={30} color="#ffffff" className="animate-spin" /> : <span className="relative z-10 font-style text-xl">Register</span>}
                                  </button>
                               </div>
                            </form>

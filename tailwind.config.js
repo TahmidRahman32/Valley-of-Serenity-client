@@ -13,7 +13,7 @@ export default {
             slider4: "url('/src/assets/slider/lobby8.jpg')",
             aboutLogo: "url('/src/assets/slider/lobby2.png')",
             reviewPic: "url('/src/assets/slider/reviewPic.jpg')",
-            // slider1: "url('./src/assets/slider/lobby1.png')",
+          
          },
          fontFamily: {
             style: ["Fira Sans", "sans-serif"],

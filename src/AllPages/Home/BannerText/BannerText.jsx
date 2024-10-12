@@ -6,8 +6,8 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 const BannerText = () => {
    return (
-      <div className="flex justify-center items-center min-h-[calc(100vh-112px)] rounded-md bg bg-gradient-to-r from-[#01091380] to-[#20215130] animate__animated animate__zoomInDown animate__fast">
-         <div className="text-white text-center">
+      <div className="flex justify-center items-center min-h-[calc(100vh-112px)] rounded-md bg bg-gradient-to-r from-[#01091380] to-[#20215130] ">
+         <div className="text-white text-center animate__animated animate__zoomInDown animate__slow">
             <h5 className="text-2xl font-sc animate__animated animate__zoomInDown animate__fast">Welcome to Luxeliving</h5>
             <h1 className="text-6xl font-style font-bold">
                <ReactTyped strings={["Discover the art of"]} typeSpeed={300} loop />
@@ -22,7 +22,7 @@ const BannerText = () => {
                         <input type="text" placeholder="Search" className="w-3/5 p-3 rounded-l-lg sm:w-2/3 text-black" />
                         <button
                            type="button"
-                           className="w-2/5 p-3 font-semibold rounded-r-lg sm:w-1/3   relative flex  h-[50px] mx-auto items-center justify-center overflow-hidden bg-black text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-500 before:duration-500 before:ease-out hover:shadow-blue-600 hover:before:h-56 hover:before:w-56 rounded-lg"
+                           className="w-2/5 p-3 font-semibold  sm:w-1/3   relative flex  h-[50px] mx-auto items-center justify-center overflow-hidden bg-black text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-500 before:duration-500 before:ease-out hover:shadow-blue-600 hover:before:h-56 hover:before:w-56 rounded-r-lg"
                         >
                            <span className="relative z-10 font-style ">Search</span>
                         </button>

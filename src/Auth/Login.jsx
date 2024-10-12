@@ -8,38 +8,42 @@ import axios from "axios";
 import useAuth from "../Hooks/useAuth";
 import { Helmet } from "react-helmet";
 import toast from "react-hot-toast";
+import { CgSpinner } from "react-icons/cg";
 
 const Login = () => {
    const [showPass, setShowPass] = useState(false);
-   const { login, googleLogin, gitHubLogin } = useAuth();
+   const [error, setError] = useState("");
+   const { login, googleLogin, gitHubLogin, loading, setLoading } = useAuth();
    const location = useLocation();
 
    const navigate = useNavigate();
 
    const loginHandleBtn = (e) => {
       e.preventDefault();
+      setLoading(true);
       const form = e.target;
       const email = form.email.value;
       const password = form.password.value;
       login(email, password)
          .then((result) => {
-         
             const loggedUser = result.user;
-            if(loggedUser){
-               toast('login successfully')
+            if (loggedUser) {
+               toast.success("login successfully");
             }
-            
+
             const user = { email };
             axios.post("https://assignment-11-server-delta-ruddy.vercel.app/jwt", user, { withCredentials: true }).then((res) => {
-              
                if (res.data.success) {
                   navigate(location?.state ? location?.state : "/login");
+                  setLoading(false);
+                  setError('');
                   navigate("/");
                }
             });
          })
          .catch((error) => {
-            console.log(error);
+            setError(error.message);
+            setLoading(false)
          });
    };
    const handleGoogleLogin = () => {
@@ -52,18 +56,21 @@ const Login = () => {
                // console.log(res.data);
                if (res.data.success) {
                   navigate(location?.state ? location?.state : "/login");
+                  setError('');
+                  navigate("/");
                }
             });
             // navigate(location?.state ? location?.state : "/login");
          })
          .catch((error) => {
             console.log(error);
+            setError(error.message);
          });
    };
    const handleGitHubBtn = () => {
       gitHubLogin()
          .then((result) => {
-              const loggedUser = result.user;
+            const loggedUser = result.user;
             if (loggedUser) {
                toast("login successfully");
             }
@@ -95,6 +102,7 @@ const Login = () => {
 
                <div className="flex justify-center my-2 mx-4 md:mx-0">
                   <div className="w-full max-w-xl  rounded-lg shadow-md p-6">
+                     <div className="text-center"><p className="text-red-600 font-bold">{error}</p></div>
                      <div className="text-center">
                         <div className="flex items-center justify-center"></div>
                         <h2 className="text-4xl tracking-tight font-bold font-joss">Sign in into your account</h2>
@@ -134,8 +142,11 @@ const Login = () => {
                            </div>
 
                            <div className="text-center md:w-full px-3 mb-6">
-                              <button className="relative flex w-1/2 h-[50px] mx-auto items-center justify-center overflow-hidden bg-black text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-500 before:duration-500 before:ease-out hover:shadow-blue-600 hover:before:h-56 hover:before:w-56 rounded-lg">
-                                 <span className="relative z-10 font-style text-xl">LogIn</span>
+                              <button
+                                 disabled={loading}
+                                 className="relative flex w-1/2 h-[50px] mx-auto items-center justify-center overflow-hidden bg-black text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-blue-500 before:duration-500 before:ease-out hover:shadow-blue-600 hover:before:h-56 hover:before:w-56 rounded-lg"
+                              >
+                                 {loading ? <CgSpinner size={30} color="#ffffff" className="animate-spin" /> : <span className="relative z-10 font-style text-xl">LogIn</span>}
                               </button>
                            </div>
                         </form>

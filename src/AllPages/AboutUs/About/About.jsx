@@ -18,7 +18,7 @@ const About = () => {
             </div>
          </div>
          <div className="grid grid-cols-2   gap-16 my-10 max-w-7xl mx-auto ">
-            <div className="space-y-6 ">
+            <div className="space-y-6 bg-fixed">
                <h2 className="text-center text-5xl font-bold font-classic">Find Our Exclusive Room Packages</h2>
                <div className="space-y-6 ">
                   <p className="text-gray-500 font-style">

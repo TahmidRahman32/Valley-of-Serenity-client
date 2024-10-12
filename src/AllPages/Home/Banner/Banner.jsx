@@ -21,10 +21,10 @@ const Banner = () => {
       <div className="">
          <Swiper
             // install Swiper modules
-            modules={[Navigation, Pagination, Autoplay]}
+            modules={[ Pagination, Autoplay]}
             spaceBetween={50}
             slidesPerView={1}
-            navigation
+           speed={1500}
             autoplay
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}

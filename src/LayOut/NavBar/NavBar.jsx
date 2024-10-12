@@ -43,9 +43,7 @@ const NavBar = () => {
             });
             logOut()
                .then(() => {})
-               .then(() => {
-                  
-               });
+               .then(() => {});
          }
       });
    };
@@ -156,36 +154,39 @@ const NavBar = () => {
 
                {/* handle? */}
 
-               <div className="dropdown dropdown-end z-50">
-                  <div title="Edit" tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                     <div className={user?.photoURL && "w-10 rounded-full"}>
-                        <img src={user?.photoURL || null} />
+               {user && (
+                  <div className="dropdown dropdown-end z-50">
+                     <div title="Edit" tabIndex={0} role="button" className={user?.photoURL && "btn btn-ghost btn-circle avatar"}>
+                        {user?.photoURL && (
+                           <div className={user?.photoURL && "w-10 rounded-full "}>
+                              <img className="" src={user?.photoURL || null} />
+                           </div>
+                        )}
                      </div>
+                     <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        <li>
+                           {/* The button to open modal */}
+
+                           {/* <Link to={"/editPage"}> </Link> */}
+
+                           <label htmlFor="my_modal_6" className="btn">
+                              {" "}
+                              Edit
+                           </label>
+
+                           {/* Put this part before </body> tag */}
+                        </li>
+                        <li>
+                           <a className="btn">Logout</a>
+                        </li>
+                     </ul>
                   </div>
-                  <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                     <li>
-                        {/* The button to open modal */}
-
-                        {/* <Link to={"/editPage"}> </Link> */}
-
-                        <label htmlFor="my_modal_6" className="btn">
-                           {" "}
-                           Edit
-                        </label>
-
-                        {/* Put this part before </body> tag */}
-                     </li>
-                     <li>
-                        <a className="btn">Logout</a>
-                     </li>
-                  </ul>
-               </div>
+               )}
 
                {user ? (
                   <NavLink
-                     to={"/login"}
                      onClick={handleLogOutBtn}
-                     className={({ isActive }) => (isActive ? "font-bold text-xl text-blue-600 font-style hover:scale-x-110 hover:transition-opacity" : "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity")}
+                     className= "font-bold text-xl font-style hover:scale-x-110 hover:transition-opacity"
                   >
                      LogOut
                   </NavLink>

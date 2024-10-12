@@ -10,11 +10,11 @@ const ErrorPage = () => {
       <div className="">
          <section className="h-screen text-gray-100">
             <img className="md:w-full relative" src={bg} alt="" />
-            <div className="absolute bottom-0 right-[740px] top-[250px]">
-               <div className="max-w-md text-center">
+            <div className="absolute bottom-0 right-[680px] top-[240px]">
+               <div className=" text-center">
                   <h2 className="mb-8 font-extrabold text-9xl text-gray-600">
                      {/* <span className="sr-only">Error</span>404 */}
-                     <img className="" src={Error} alt="" />
+                     <img className="w-96" src={Error} alt="" />
                   </h2>
                   {/* <p className="text-2xl font-semibold md:text-3xl">Sorry, we could not find this page.</p> */}
                   <p className="mt-4 mb-8 text-pink-700 font-bold">{error?.message?.slice(0,60)}</p>
